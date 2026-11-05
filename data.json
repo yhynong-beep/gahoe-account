@@ -1,128 +1,19 @@
-{
-  "summary": {
-    "balance": 5590273,
-    "income": 19298503,
-    "expense": 13708230
-  },
-  "records": [
-    {
-      "date": "2024. 05. 27",
-      "description": "이월금",
-      "type": "입금",
-      "amount": 7380055,
-      "balance": 7380055
-    },
-    {
-      "date": "2024. 06.14",
-      "description": "태년 모친상",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 7180055
-    },
-    {
-      "date": "2024. 10.18",
-      "description": "영형 여혼",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 6980055
-    },
-    {
-      "date": "2024. 12.18",
-      "description": "명희 모친상",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 6780055
-    },
-    {
-      "date": "2025. 05. 20",
-      "description": "인숙 시부상",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 6580055
-    },
-    {
-      "date": "",
-      "description": "2025년 회비 및 찬조",
-      "type": "입금",
-      "amount": 3300000,
-      "balance": 9880055
-    },
-    {
-      "date": "2025.05.24. ~2020.05.25.",
-      "description": "울산 경비",
-      "type": "출금",
-      "amount": 1432090,
-      "balance": 8447965
-    },
-    {
-      "date": "2025. 5월 ~ 현재까지",
-      "description": "이자 및 필요경비",
-      "type": "입금",
-      "amount": 6448,
-      "balance": 8454413
-    },
-    {
-      "date": "2025. 05. 31",
-      "description": "용주 자혼",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 8254413
-    },
-    {
-      "date": "2025. 09. 08",
-      "description": "홍권 본인상",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 8054413
-    },
-    {
-      "date": "2025. 09. 10",
-      "description": "류홍권 찬조",
-      "type": "입금",
-      "amount": 100000,
-      "balance": 8154413
-    },
-    {
-      "date": "2026. 01. 31",
-      "description": "명희 여혼",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 7954413
-    },
-    {
-      "date": "",
-      "description": "2026년 회비 및 찬조",
-      "type": "입금",
-      "amount": 7580000,
-      "balance": 15534413
-    },
-    {
-      "date": "2026.05.23 ~2026.05.25",
-      "description": "목포 신안 경비",
-      "type": "출금",
-      "amount": 10676140,
-      "balance": 4858273
-    },
-    {
-      "date": "2026.05.23 ~2026.05.25",
-      "description": "추가 경비 각출",
-      "type": "입금",
-      "amount": 798000,
-      "balance": 5656273
-    },
-    {
-      "date": "2026. 05. 26",
-      "description": "추후 찬조",
-      "type": "입금",
-      "amount": 134000,
-      "balance": 5790273
-    },
-    {
-      "date": "2026. 08. 22",
-      "description": "위웅 모친상",
-      "type": "출금",
-      "amount": 200000,
-      "balance": 5590273
-    }
-  ]
-}
+[
+  { "date": "2024. 05. 27", "content": "이월금", "type": "입금", "amount": 7380055, "balance": 7380055 },
+  { "date": "2024. 06. 14", "content": "태년 모친상", "type": "출금", "amount": 200000, "balance": 7180055 },
+  { "date": "2024. 10. 18", "content": "영형 여혼", "type": "출금", "amount": 200000, "balance": 6980055 },
+  { "date": "2024. 12. 18", "content": "명희 모친상", "type": "출금", "amount": 200000, "balance": 6780055 },
+  { "date": "2025. 05. 20", "content": "인숙 시부상", "type": "출금", "amount": 200000, "balance": 6580055 },
+  { "date": "2025. 05. 01", "content": "2025년 회비 및 찬조", "type": "입금", "amount": 3300000, "balance": 9880055 },
+  { "date": "2025. 05. 24 ~ 05. 25", "content": "울산 경비", "type": "출금", "amount": 1432090, "balance": 8447965 },
+  { "date": "2025. 05월 ~ 현재", "content": "이자 및 필요경비", "type": "입금", "amount": 6448, "balance": 8454413 },
+  { "date": "2025. 05. 31", "content": "용주 자혼", "type": "출금", "amount": 200000, "balance": 8254413 },
+  { "date": "2025. 09. 08", "content": "홍권 본인상", "type": "출금", "amount": 200000, "balance": 8054413 },
+  { "date": "2025. 09. 10", "content": "류홍권 찬조", "type": "입금", "amount": 100000, "balance": 8154413 },
+  { "date": "2026. 01. 31", "content": "명희 여혼", "type": "출금", "amount": 200000, "balance": 7954413 },
+  { "date": "2026. 01. 01", "content": "2026년 회비 및 찬조", "type": "입금", "amount": 7580000, "balance": 15534413 },
+  { "date": "2026. 05. 23 ~ 05. 25", "content": "목포 신안 경비", "type": "출금", "amount": 10676140, "balance": 4858273 },
+  { "date": "2026. 05. 23 ~ 05. 25", "content": "추가 경비 각출", "type": "입금", "amount": 798000, "balance": 5656273 },
+  { "date": "2026. 05. 26", "content": "추후 찬조", "type": "입금", "amount": 134000, "balance": 5790273 },
+  { "date": "2026. 08. 22", "content": "위웅 모친상", "type": "출금", "amount": 200000, "balance": 5590273 }
+]
