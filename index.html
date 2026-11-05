@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🌺 가호회 장부 및 모임 안내</title>
+    <title>🌺 가호회 장부</title>
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,7 +96,7 @@
             backdrop-filter: blur(8px);
             border-radius: var(--radius-md);
             padding: 14px;
-            margin-top: 8px;
+            margin-top: 12px;
             display: flex;
             justify-content: space-around;
             text-align: center;
@@ -113,36 +113,13 @@
             font-weight: 700;
         }
 
-        .share-banner-btn {
-            width: 100%;
-            background-color: #fee500;
-            color: #000;
-            border: none;
-            padding: 12px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-top: 12px;
-        }
-
-        .share-banner-btn:active {
-            transform: scale(0.98);
-            background-color: #fada00;
-        }
-
         /* 탭 메뉴 */
         .tab-section {
             display: flex;
             background: var(--card-bg);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
-            top: 148px;
+            top: 130px;
             z-index: 90;
         }
 
@@ -261,34 +238,22 @@
             color: var(--expense-color);
         }
 
+        .link-badge-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: #3b82f6;
+            background: #eff6ff;
+            padding: 4px 10px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
         .balance-text {
             font-size: 12px;
             color: var(--text-sub);
             margin-top: 2px;
-        }
-
-        /* 토스트 메시지 */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background-color: rgba(15, 23, 42, 0.9);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
         }
 
         footer {
@@ -322,10 +287,6 @@
                 <div class="val" id="totalExpenseVal">0원</div>
             </div>
         </div>
-
-        <button class="share-banner-btn" onclick="shareSite()">
-            <i class="fa-solid fa-share-nodes"></i> 가호회 링크 카톡으로 공유하기
-        </button>
     </header>
 
     <div class="tab-section">
@@ -341,11 +302,6 @@
     <footer>
         <p>© 가호회. 모임 내역 및 회비 입출금 현황</p>
     </footer>
-</div>
-
-<div class="toast" id="toast">
-    <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
-    <span id="toastMsg">링크가 복사되었습니다!</span>
 </div>
 
 <script>
@@ -386,10 +342,13 @@
         });
 
         filtered.forEach(item => {
-            const card = document.createElement(item.link ? 'a' : 'div');
+            const hasLink = Boolean(item.link);
+            const isPureLink = item.type === '링크' || (hasLink && item.amount === 0);
+
+            const card = document.createElement(hasLink ? 'a' : 'div');
             card.className = 'history-card';
 
-            if (item.link) {
+            if (hasLink) {
                 card.href = item.link;
                 card.target = "_blank";
                 card.rel = "noopener noreferrer";
@@ -400,8 +359,8 @@
             const isIncome = item.type === '입금';
             const isExpense = item.type === '출금';
             
-            const iconClass = item.link ? 'icon-link' : (isIncome ? 'icon-income' : 'icon-expense');
-            const iconSymbol = item.link ? 'fa-link' : (isIncome ? 'fa-arrow-down' : 'fa-arrow-up');
+            const iconClass = isPureLink ? 'icon-link' : (isIncome ? 'icon-income' : 'icon-expense');
+            const iconSymbol = isPureLink ? 'fa-images' : (isIncome ? 'fa-arrow-down' : 'fa-arrow-up');
 
             card.innerHTML = `
                 <div class="history-left">
@@ -411,15 +370,16 @@
                     <div class="history-info">
                         <div class="title">
                             ${item.content}
-                            ${item.link ? '<i class="fa-solid fa-external-link-alt" style="font-size:11px; margin-left:4px; color:#3b82f6;"></i>' : ''}
+                            ${hasLink ? '<i class="fa-solid fa-external-link-alt" style="font-size:11px; margin-left:4px; color:#3b82f6;"></i>' : ''}
                         </div>
                         <div class="date">${item.date || '기록 항목'}</div>
                     </div>
                 </div>
                 <div class="history-right">
                     ${isIncome ? `<div class="amount-income">+${item.amount.toLocaleString()}원</div>` : ''}
-                    ${isExpense ? `<div class="amount-expense">-${item.amount.toLocaleString()}원</div>` : ''}
-                    ${item.balance > 0 ? `<div class="balance-text">잔액: ${item.balance.toLocaleString()}원</div>` : ''}
+                    ${isExpense ? `<div class="amount-expense">-${item.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</div>` : ''}
+                    ${isPureLink ? `<div class="link-badge-text"><i class="fa-solid fa-arrow-up-right-from-square"></i> 보기</div>` : ''}
+                    ${!isPureLink && item.balance > 0 ? `<div class="balance-text">잔액: ${item.balance.toLocaleString()}원</div>` : ''}
                 </div>
             `;
             container.appendChild(card);
@@ -431,33 +391,6 @@
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         element.classList.add('active');
         renderList();
-    }
-
-    function shareSite() {
-        const shareData = {
-            title: '🌺 가호회 장부 및 모임 안내',
-            text: '가호회 회비 내역 및 입출금 현황입니다.',
-            url: window.location.href
-        };
-
-        if (navigator.share) {
-            navigator.share(shareData).catch(() => {});
-        } else {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                showToast("링크가 클립보드에 복사되었습니다!");
-            }).catch(() => {
-                showToast("주소창의 링크를 복사해 공유해 주세요!");
-            });
-        }
-    }
-
-    function showToast(msg) {
-        const toast = document.getElementById('toast');
-        document.getElementById('toastMsg').innerText = msg;
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 2500);
     }
 
     document.addEventListener('DOMContentLoaded', loadData);
