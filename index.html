@@ -13,6 +13,7 @@
     <style>
         :root {
             --primary: #4f46e5;
+            --primary-hover: #4338ca;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #0f172a;
@@ -23,6 +24,7 @@
             --radius-lg: 16px;
             --radius-md: 12px;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         * {
@@ -52,6 +54,7 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.08);
         }
 
+        /* 헤더 */
         header {
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
@@ -133,6 +136,7 @@
             background-color: #fada00;
         }
 
+        /* 탭 메뉴 */
         .tab-section {
             display: flex;
             background: var(--card-bg);
@@ -161,6 +165,7 @@
             border-bottom-color: var(--primary);
         }
 
+        /* 메인 리스트 */
         main {
             padding: 16px 20px 40px 20px;
             flex: 1;
@@ -181,12 +186,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            transition: transform 0.1s ease, background-color 0.2s;
+        }
+
+        .history-card:hover {
+            border-color: var(--primary);
+        }
+
+        .history-card:active {
+            transform: scale(0.98);
+            background-color: #f8fafc;
         }
 
         .history-left {
             display: flex;
             align-items: center;
             gap: 12px;
+            min-width: 0;
         }
 
         .icon-circle {
@@ -203,11 +219,22 @@
 
         .icon-income { background: linear-gradient(135deg, #22c55e, #15803d); }
         .icon-expense { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+        .icon-link { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+
+        .history-info {
+            min-width: 0;
+        }
 
         .history-info .title {
             font-size: 15px;
             font-weight: 700;
             color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .history-info .date {
@@ -218,6 +245,8 @@
 
         .history-right {
             text-align: right;
+            flex-shrink: 0;
+            margin-left: 8px;
         }
 
         .amount-income {
@@ -238,6 +267,7 @@
             margin-top: 2px;
         }
 
+        /* 토스트 메시지 */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -309,13 +339,13 @@
     </main>
 
     <footer>
-        <p>© 가호회. 회비 내역 및 입출금 현황</p>
+        <p>© 가호회. 모임 내역 및 회비 입출금 현황</p>
     </footer>
 </div>
 
 <div class="toast" id="toast">
     <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
-    <span id="toastMsg">링크가 클립보드에 복사되었습니다!</span>
+    <span id="toastMsg">링크가 복사되었습니다!</span>
 </div>
 
 <script>
@@ -356,12 +386,24 @@
         });
 
         filtered.forEach(item => {
-            const card = document.createElement('div');
+            // link가 있으면 a 태그(클릭 가능한 링크), 없으면 div 태그 생성
+            const card = document.createElement(item.link ? 'a' : 'div');
             card.className = 'history-card';
 
+            if (item.link) {
+                card.href = item.link;
+                card.target = "_blank";
+                card.rel = "noopener noreferrer";
+                card.style.textDecoration = "none";
+                card.style.color = "inherit";
+            }
+
             const isIncome = item.type === '입금';
-            const iconClass = isIncome ? 'icon-income' : 'icon-expense';
-            const iconSymbol = isIncome ? 'fa-arrow-down' : 'fa-arrow-up';
+            const isExpense = item.type === '출금';
+            
+            // 링크가 있는 항목은 파란색 링크 아이콘 표시
+            const iconClass = item.link ? 'icon-link' : (isIncome ? 'icon-income' : 'icon-expense');
+            const iconSymbol = item.link ? 'fa-link' : (isIncome ? 'fa-arrow-down' : 'fa-arrow-up');
 
             card.innerHTML = `
                 <div class="history-left">
@@ -369,13 +411,17 @@
                         <i class="fa-solid ${iconSymbol}"></i>
                     </div>
                     <div class="history-info">
-                        <div class="title">${item.content}</div>
-                        <div class="date">${item.date}</div>
+                        <div class="title">
+                            ${item.content}
+                            ${item.link ? '<i class="fa-solid fa-external-link-alt" style="font-size:11px; margin-left:4px; color:#3b82f6;"></i>' : ''}
+                        </div>
+                        <div class="date">${item.date || '기록 항목'}</div>
                     </div>
                 </div>
                 <div class="history-right">
-                    ${isIncome ? `<div class="amount-income">+${item.amount.toLocaleString()}원</div>` : `<div class="amount-expense">-${item.amount.toLocaleString()}원</div>`}
-                    <div class="balance-text">잔액: ${item.balance.toLocaleString()}원</div>
+                    ${isIncome ? `<div class="amount-income">+${item.amount.toLocaleString()}원</div>` : ''}
+                    ${isExpense ? `<div class="amount-expense">-${item.amount.toLocaleString()}원</div>` : ''}
+                    ${item.balance > 0 ? `<div class="balance-text">잔액: ${item.balance.toLocaleString()}원</div>` : ''}
                 </div>
             `;
             container.appendChild(card);
