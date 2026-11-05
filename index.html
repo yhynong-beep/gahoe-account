@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🌺 가호회 장부</title>
+    <title>🌺 가호회 장부 및 모임 안내</title>
     <!-- Google Fonts & Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,7 +96,7 @@
             backdrop-filter: blur(8px);
             border-radius: var(--radius-md);
             padding: 14px;
-            margin-top: 12px;
+            margin-top: 8px;
             display: flex;
             justify-content: space-around;
             text-align: center;
@@ -113,13 +113,36 @@
             font-weight: 700;
         }
 
+        .share-banner-btn {
+            width: 100%;
+            background-color: #fee500;
+            color: #000;
+            border: none;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 12px;
+        }
+
+        .share-banner-btn:active {
+            transform: scale(0.98);
+            background-color: #fada00;
+        }
+
         /* 탭 메뉴 */
         .tab-section {
             display: flex;
             background: var(--card-bg);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
-            top: 130px;
+            top: 148px;
             z-index: 90;
         }
 
@@ -256,6 +279,30 @@
             margin-top: 2px;
         }
 
+        /* 토스트 메시지 */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: rgba(15, 23, 42, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -287,6 +334,10 @@
                 <div class="val" id="totalExpenseVal">0원</div>
             </div>
         </div>
+
+        <button class="share-banner-btn" onclick="shareSite()">
+            <i class="fa-solid fa-share-nodes"></i> 가호회 링크 카톡으로 공유하기
+        </button>
     </header>
 
     <div class="tab-section">
@@ -302,6 +353,11 @@
     <footer>
         <p>© 가호회. 모임 내역 및 회비 입출금 현황</p>
     </footer>
+</div>
+
+<div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
+    <span id="toastMsg">링크가 복사되었습니다!</span>
 </div>
 
 <script>
@@ -391,6 +447,33 @@
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         element.classList.add('active');
         renderList();
+    }
+
+    function shareSite() {
+        const shareData = {
+            title: '🌺 가호회 장부',
+            text: '가호회 회비 내역 및 입출금 현황입니다.',
+            url: window.location.href
+        };
+
+        if (navigator.share) {
+            navigator.share(shareData).catch(() => {});
+        } else {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast("링크가 클립보드에 복사되었습니다!");
+            }).catch(() => {
+                showToast("주소창의 링크를 복사해 공유해 주세요!");
+            });
+        }
+    }
+
+    function showToast(msg) {
+        const toast = document.getElementById('toast');
+        document.getElementById('toastMsg').innerText = msg;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2500);
     }
 
     document.addEventListener('DOMContentLoaded', loadData);
