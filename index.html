@@ -96,7 +96,7 @@
             backdrop-filter: blur(8px);
             border-radius: var(--radius-md);
             padding: 14px;
-            margin-top: 8px;
+            margin-top: 12px;
             display: flex;
             justify-content: space-around;
             text-align: center;
@@ -113,36 +113,13 @@
             font-weight: 700;
         }
 
-        .share-banner-btn {
-            width: 100%;
-            background-color: #fee500;
-            color: #000;
-            border: none;
-            padding: 12px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            font-size: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-top: 12px;
-        }
-
-        .share-banner-btn:active {
-            transform: scale(0.98);
-            background-color: #fada00;
-        }
-
         /* 탭 메뉴 */
         .tab-section {
             display: flex;
             background: var(--card-bg);
             border-bottom: 1px solid var(--border-color);
             position: sticky;
-            top: 148px;
+            top: 130px;
             z-index: 90;
         }
 
@@ -279,30 +256,6 @@
             margin-top: 2px;
         }
 
-        /* 토스트 메시지 */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background-color: rgba(15, 23, 42, 0.9);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
-
         footer {
             text-align: center;
             padding: 20px;
@@ -334,10 +287,6 @@
                 <div class="val" id="totalExpenseVal">0원</div>
             </div>
         </div>
-
-        <button class="share-banner-btn" onclick="shareSite()">
-            <i class="fa-solid fa-share-nodes"></i> 가호회 링크 카톡으로 공유하기
-        </button>
     </header>
 
     <div class="tab-section">
@@ -355,11 +304,6 @@
     </footer>
 </div>
 
-<div class="toast" id="toast">
-    <i class="fa-solid fa-circle-check" style="color: #4ade80;"></i>
-    <span id="toastMsg">링크가 복사되었습니다!</span>
-</div>
-
 <script>
     let historyData = [];
     let currentFilter = 'all';
@@ -367,7 +311,21 @@
     async function loadData() {
         try {
             const response = await fetch('data.json');
-            historyData = await response.json();
+            const rawData = await response.json();
+            
+            // 자동으로 잔액 계산하기 로직 추가
+            let runningBalance = 0;
+            historyData = rawData.map(item => {
+                const amount = item.amount || 0;
+                if (item.type === '입금') {
+                    runningBalance += amount;
+                } else if (item.type === '출금') {
+                    runningBalance -= amount;
+                }
+                // 계산된 잔액을 객체에 부여
+                return { ...item, calcBalance: runningBalance };
+            });
+
             renderList();
         } catch (error) {
             console.error('데이터를 불러오는데 실패했습니다.', error);
@@ -385,7 +343,7 @@
         historyData.forEach(item => {
             if (item.type === '입금') totalIncome += item.amount;
             if (item.type === '출금') totalExpense += item.amount;
-            if (item.balance > 0) lastBalance = item.balance;
+            lastBalance = item.calcBalance;
         });
 
         document.getElementById('totalIncomeVal').innerText = totalIncome.toLocaleString() + '원';
@@ -433,9 +391,9 @@
                 </div>
                 <div class="history-right">
                     ${isIncome ? `<div class="amount-income">+${item.amount.toLocaleString()}원</div>` : ''}
-                    ${isExpense ? `<div class="amount-expense">-${item.amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}원</div>` : ''}
+                    ${isExpense ? `<div class="amount-expense">-${item.amount.toLocaleString()}원</div>` : ''}
                     ${isPureLink ? `<div class="link-badge-text"><i class="fa-solid fa-arrow-up-right-from-square"></i> 보기</div>` : ''}
-                    ${!isPureLink && item.balance > 0 ? `<div class="balance-text">잔액: ${item.balance.toLocaleString()}원</div>` : ''}
+                    ${!isPureLink ? `<div class="balance-text">잔액: ${item.calcBalance.toLocaleString()}원</div>` : ''}
                 </div>
             `;
             container.appendChild(card);
@@ -444,37 +402,13 @@
 
     function setTab(filter, element) {
         currentFilter = filter;
+        querySelectorAll_safe();
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         element.classList.add('active');
         renderList();
     }
 
-    function shareSite() {
-        const shareData = {
-            title: '🌺 가호회 장부',
-            text: '가호회 회비 내역 및 입출금 현황입니다.',
-            url: window.location.href
-        };
-
-        if (navigator.share) {
-            navigator.share(shareData).catch(() => {});
-        } else {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                showToast("링크가 클립보드에 복사되었습니다!");
-            }).catch(() => {
-                showToast("주소창의 링크를 복사해 공유해 주세요!");
-            });
-        }
-    }
-
-    function showToast(msg) {
-        const toast = document.getElementById('toast');
-        document.getElementById('toastMsg').innerText = msg;
-        toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 2500);
-    }
+    function querySelectorAll_safe() {}
 
     document.addEventListener('DOMContentLoaded', loadData);
 </script>
