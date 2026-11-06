@@ -118,17 +118,17 @@
             letter-spacing: -0.3px;
         }
 
-        /* 탭 메뉴 (알약/캡슐 스타일) */
+        /* 💡 수정 포인트: 헤더 높이에 맞게 sticky 고정 위치를 매끄럽게 처리 */
         .tab-section {
             display: flex;
             background: var(--card-bg);
-            padding: 14px 20px;
+            padding: 12px 20px;
             gap: 8px;
             border-bottom: 1px solid var(--border-color);
             position: sticky;
-            top: 142px;
+            top: 176px; /* 헤더 바로 아래에 딱 붙도록 고정 */
             z-index: 90;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
         .tab-btn {
@@ -173,7 +173,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px; /* 좌우 항목 간 최소 간격 확보 */
+            gap: 12px;
             transition: transform 0.15s ease, border-color 0.2s, box-shadow 0.2s;
         }
 
@@ -190,8 +190,8 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            flex: 1; /* 제목 영역이 남은 공간을 알맞게 차지 */
-            min-width: 0; /* 글자 잘림 처리가 제대로 작동하도록 설정 */
+            flex: 1;
+            min-width: 0;
         }
 
         .icon-circle {
@@ -216,7 +216,6 @@
             min-width: 0;
         }
 
-        /* 💡 핵심: 제목이 길면 자동으로 줄바꿈(최대 2줄)되어 깔끔하게 잘림 */
         .history-info .title {
             font-size: 15px;
             font-weight: 750;
@@ -225,10 +224,10 @@
             letter-spacing: -0.3px;
             
             display: -webkit-box;
-            -webkit-line-clamp: 2; /* 최대 2줄까지만 표시 */
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            word-break: keep-all; /* 단어 단위로 예쁘게 줄바꿈 */
+            word-break: keep-all;
         }
 
         .history-info .date {
@@ -238,7 +237,6 @@
             font-weight: 500;
         }
 
-        /* 💡 핵심: 우측 금액 및 링크 버튼 영역이 밀리지 않도록 고정 */
         .history-right {
             text-align: right;
             flex-shrink: 0;
@@ -273,7 +271,7 @@
             align-items: center;
             gap: 5px;
             border: 1px solid #dbeafe;
-            white-space: nowrap; /* 보기 버튼 글자 절대 안깎임 */
+            white-space: nowrap;
         }
 
         .balance-text {
