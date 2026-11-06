@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>울산 추억 영상 (- 2025.05.24~25)</title>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Pretendard', 'Malgun Gothic', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0 15px 20px 15px;
+            line-height: 1.35;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 상단 헤더 화면 고정 (Sticky Header) */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            padding: 14px 15px;
+            margin-bottom: 15px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            border-bottom: 2px solid #1e40af;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 3px 0 0 0;
+            font-size: 13px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin: 15px 0 8px 2px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 8px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .card-header {
+            margin-bottom: 4px;
+        }
+
+        /* 사진 번호 링크 스타일 */
+        .photo-number-link {
+            font-weight: 800;
+            color: var(--accent-color);
+            font-size: 15px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.15s ease;
+        }
+
+        .photo-number-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .photo-desc {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-sub);
+            margin: 4px 0 0 0;
+            word-break: keep-all;
+            line-height: 1.3;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 25px;
+            padding: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 8px 15px 8px;
+            }
+            header {
+                padding: 12px 10px;
+                border-radius: 0 0 10px 10px;
+            }
+            header h1 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>울산 추억 사진첩</h1>
+        <p>날짜: 2025. 05. 24 ~ 25</p>
+    </header>
+
+    <div class="section-title">울산 여행 추억 사진 (사진 1 ~ 사진 51)</div>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=303504268" target="_blank" class="photo-number-link">사진1 🔗</a>
+            </div>
+            <div class="photo-desc">단체사진(태화강국가정원)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1159600624" target="_blank" class="photo-number-link">사진2 🔗</a>
+            </div>
+            <div class="photo-desc">태화강국가정원 관람차</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=20748532" target="_blank" class="photo-number-link">사진3 🔗</a>
+            </div>
+            <div class="photo-desc">태화강국가정원 관람차</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=280199578" target="_blank" class="photo-number-link">사진4 🔗</a>
+            </div>
+            <div class="photo-desc">태화강국가정원 관람차</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1025766041" target="_blank" class="photo-number-link">사진5 🔗</a>
+            </div>
+            <div class="photo-desc">태화강국가정원 대나무숲</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1562494290" target="_blank" class="photo-number-link">사진6 🔗</a>
+            </div>
+            <div class="photo-desc">태화강국가정원 관람차</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=479284996" target="_blank" class="photo-number-link">사진7 🔗</a>
+            </div>
+            <div class="photo-desc">태화강국가정원 대나무숲</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=569852932" target="_blank" class="photo-number-link">사진8 🔗</a>
+            </div>
+            <div class="photo-desc">태화강국가정원 대나무숲</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1898986940" target="_blank" class="photo-number-link">사진9 🔗</a>
+            </div>
+            <div class="photo-desc">울산교육연수원장 집무실</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=438881238" target="_blank" class="photo-number-link">사진10 🔗</a>
+            </div>
+            <div class="photo-desc">울산교육연수원 휴게실(홍숙)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=30238181" target="_blank" class="photo-number-link">사진11 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션(좌담)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1833557434" target="_blank" class="photo-number-link">사진12 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션(좌담)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1869933692" target="_blank" class="photo-number-link">사진13 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션(좌담)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1941208496" target="_blank" class="photo-number-link">사진14 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1568405424" target="_blank" class="photo-number-link">사진15 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=392505631" target="_blank" class="photo-number-link">사진16 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=346794897" target="_blank" class="photo-number-link">사진17 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=613537747" target="_blank" class="photo-number-link">사진18 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1163968715" target="_blank" class="photo-number-link">사진19 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=823043332" target="_blank" class="photo-number-link">사진20 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1742985670" target="_blank" class="photo-number-link">사진21 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=835789204" target="_blank" class="photo-number-link">사진22 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=672673332" target="_blank" class="photo-number-link">사진23 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1744787748" target="_blank" class="photo-number-link">사진24 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=759333769" target="_blank" class="photo-number-link">사진25 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=2108482098" target="_blank" class="photo-number-link">사진26 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=142256891" target="_blank" class="photo-number-link">사진27 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=105146817" target="_blank" class="photo-number-link">사진28 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1165407778" target="_blank" class="photo-number-link">사진29 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1717693492" target="_blank" class="photo-number-link">사진30 🔗</a>
+            </div>
+            <div class="photo-desc">청정횟집(저녁식사자리)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=2120299922" target="_blank" class="photo-number-link">사진31 🔗</a>
+            </div>
+            <div class="photo-desc">펜션앞 바다 (수남 태연)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=894012490" target="_blank" class="photo-number-link">사진32 🔗</a>
+            </div>
+            <div class="photo-desc">펜션앞 바다 (수남 태연)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=331059943" target="_blank" class="photo-number-link">사진33 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 욕조(행자)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1402777742" target="_blank" class="photo-number-link">사진34 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 (수남 홍재)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=264486530" target="_blank" class="photo-number-link">사진35 🔗</a>
+            </div>
+            <div class="photo-desc">울산교육연수원 휴게실</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=643438417" target="_blank" class="photo-number-link">사진36 🔗</a>
+            </div>
+            <div class="photo-desc">울산교육연수원 휴게실</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=446864438" target="_blank" class="photo-number-link">사진37 🔗</a>
+            </div>
+            <div class="photo-desc">울산교육연수원 휴게실</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1273062369" target="_blank" class="photo-number-link">사진38 🔗</a>
+            </div>
+            <div class="photo-desc">울산교육연수원 단체사진</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1903672520" target="_blank" class="photo-number-link">사진39 🔗</a>
+            </div>
+            <div class="photo-desc">울산교육연수원 단체사진</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=92323838" target="_blank" class="photo-number-link">사진40 🔗</a>
+            </div>
+            <div class="photo-desc">십리대숲 은하수길</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=133465715" target="_blank" class="photo-number-link">사진41 🔗</a>
+            </div>
+            <div class="photo-desc">십리대숲 은하수길</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=288282361" target="_blank" class="photo-number-link">사진42 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 바다 전경</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1602747376" target="_blank" class="photo-number-link">사진43 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 바다 전경</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=198083815" target="_blank" class="photo-number-link">사진44 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 바다 (희자)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=447713028" target="_blank" class="photo-number-link">사진45 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 바다 (희자)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=384799042" target="_blank" class="photo-number-link">사진46 🔗</a>
+            </div>
+            <div class="photo-desc">가고파식당 (참가자미 미역국)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1999813292" target="_blank" class="photo-number-link">사진47 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 바다 (희자)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=122464731" target="_blank" class="photo-number-link">사진48 🔗</a>
+            </div>
+            <div class="photo-desc">쑥떡( 인순이 찬조, 맛있게먹음)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=411707577" target="_blank" class="photo-number-link">사진49 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 바다 (희자)</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=2049103254" target="_blank" class="photo-number-link">사진50 🔗</a>
+            </div>
+            <div class="photo-desc">바다별펜션 주소</div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1152062512" target="_blank" class="photo-number-link">사진51 🔗</a>
+            </div>
+            <div class="photo-desc">동영상 51</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>울산 사진첩 프로젝트 (사진1 ~ 사진51)</p>
+    </footer>
+</div>
+
+</body>
+</html>
