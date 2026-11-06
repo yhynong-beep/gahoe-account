@@ -63,7 +63,8 @@
     "date": "2025. 05월 ~ 현재",
     "content": "이자 및 필요경비",
     "type": "입금",
-    "amount": 6448
+    "amount": 6448,
+    "link": "https://docs.google.com/spreadsheets/d/1bCn8y7oud17SmuWL6JVi2O5TeptD4c9i2-YLAcF64ZM/edit?usp=drivesdk"
   },
   {
     "date": "2025. 05. 31",
