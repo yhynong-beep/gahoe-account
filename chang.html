@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창녕 추억 사진첩 (- 2026.10.5.(월))</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-color: #e1e8ed;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Nanum Gothic', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 20px 0 10px 5px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .photo-number {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 16px;
+        }
+
+        .photo-desc {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 12px;
+            word-break: keep-all;
+        }
+
+        .photo-link {
+            display: inline-block;
+            text-align: center;
+            background-color: #f1f8ff;
+            color: #0366d6;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .photo-link:hover {
+            background-color: #cfe2ff;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            header {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>창녕 추억 사진첩</h1>
+        <p>날짜: 2026. 10. 5. (월)</p>
+    </header>
+
+    <!-- 식당 장소 섹션 -->
+    <div class="section-title">식당 - 고기굽는 마을</div>
+    <div class="card-grid">
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진1</span></div>
+                <div class="photo-desc">식당-고기굽는 마을(단체)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=912721847" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진2</span></div>
+                <div class="photo-desc">식당-고기굽는 마을(연종 영형 울산아지매-식당을나오며..)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1000002411" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진3</span></div>
+                <div class="photo-desc">식당-고기굽는 마을(진주 반성아지매-식당을 나오며)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=712255761" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진4</span></div>
+                <div class="photo-desc">식당-고기굽는 마을(진주 반성아지매-식당을 나오며)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=820366070" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+    </div>
+
+    <!-- 카페 장소 섹션 -->
+    <div class="section-title">카페 - 산과구름아래</div>
+    <div class="card-grid">
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진5</span></div>
+                <div class="photo-desc">카페-산과구름아래(위웅이네 부부 -투호 놀이)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=878681001" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진6</span></div>
+                <div class="photo-desc">카페-산과구름아래(위웅이네 부부 영형 -투호 놀이)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1637211311" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진7</span></div>
+                <div class="photo-desc">카페-산과구름아래(영형-정원에서 모과를 보며)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1039678393" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진8</span></div>
+                <div class="photo-desc">카페-산과구름아래(차를 마시며)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=230258936" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진9</span></div>
+                <div class="photo-desc">카페-산과구름아래(차를 마시며)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1504413187" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진10</span></div>
+                <div class="photo-desc">카페-산과구름아래(차를 마시며)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=522486921" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진11</span></div>
+                <div class="photo-desc">카페-산과구름아래(차를 마시며)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1708710574" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진12</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서-위웅 영형)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1545907508" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진13</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서 -연종 반성댁)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1127030209" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진14</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서-영형 연종 위웅 반성댁)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1916968441" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진15</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서 여자 단체 연종)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1127166018" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진16</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서-마산 진주 반성댁 연종 영형)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=2053441847" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진17</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=2137800845" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진18</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서 단체사진)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=2094546672" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진19</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서 단체사진)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=2103958114" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진20</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서 단체사진)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1480128382" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진21</span></div>
+                <div class="photo-desc">카페-산과구름아래( 카페 정원에서 여자 단체 해수 위웅)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=586783949" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진22</span></div>
+                <div class="photo-desc">카페-산과구름아래(재기차기)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=424611656" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진23</span></div>
+                <div class="photo-desc">카페-산과구름아래(재기차기)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=173100551" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진24</span></div>
+                <div class="photo-desc">카페-산과구름아래(재기차기)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1348135503" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진25</span></div>
+                <div class="photo-desc">카페-산과구름아래(재기차기)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=28139764" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진26</span></div>
+                <div class="photo-desc">카페-산과구름아래(재기차기)</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=1525639514" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진27</span></div>
+                <div class="photo-desc">추억 사진 27</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=556610895" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진28</span></div>
+                <div class="photo-desc">추억 사진 28</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=119610187" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진29</span></div>
+                <div class="photo-desc">추억 사진 29</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRoprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=434056729" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+        <div class="card">
+            <div>
+                <div class="card-header"><span class="photo-number">사진30</span></div>
+                <div class="photo-desc">추억 사진 30</div>
+            </div>
+            <a href="https://docs.google.com/spreadsheets/d/1a-0WoKqXEzrTN4yNRpprlBOm_wtHMxKU4UmCW4chuVk/edit#gid=820756067" target="_blank" class="photo-link">사진 바로가기 🔗</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>창녕 사진첩 프로젝트 (Netlify나 Vercel 등에 가볍게 배포하여 카톡으로 공유하기 좋습니다.)</p>
+    </footer>
+</div>
+
+</body>
+</html>
