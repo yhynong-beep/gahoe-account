@@ -14,7 +14,7 @@
         :root {
             --primary: #4f46e5;
             --primary-hover: #4338ca;
-            --bg-color: #f8fafc;
+            --bg-color: #f1f5f9;
             --card-bg: #ffffff;
             --text-main: #0f172a;
             --text-sub: #64748b;
@@ -23,8 +23,8 @@
             --expense-color: #dc2626;
             --radius-lg: 16px;
             --radius-md: 12px;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+            --shadow-sm: 0 2px 6px rgba(0,0,0,0.04);
+            --shadow-md: 0 6px 16px rgba(79, 70, 229, 0.12);
         }
 
         * {
@@ -54,14 +54,14 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.08);
         }
 
-        /* 헤더 */
+        /* 헤더 디자인 */
         header {
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
-            padding: 24px 20px 20px 20px;
-            border-bottom-left-radius: 24px;
-            border-bottom-right-radius: 24px;
-            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+            padding: 26px 20px 22px 20px;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+            box-shadow: var(--shadow-md);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -71,7 +71,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .header-title {
@@ -80,111 +80,121 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            letter-spacing: -0.5px;
         }
 
         .badge-balance {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
-            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(6px);
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .summary-card {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(8px);
             border-radius: var(--radius-md);
-            padding: 14px;
+            padding: 16px;
             margin-top: 12px;
             display: flex;
             justify-content: space-around;
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .summary-item .label {
             font-size: 12px;
-            opacity: 0.8;
+            opacity: 0.85;
             margin-bottom: 4px;
+            font-weight: 600;
         }
 
         .summary-item .val {
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
         }
 
-        /* 탭 메뉴 */
+        /* 탭 메뉴 (눈이 편안한 알약/캡슐 버튼 스타일) */
         .tab-section {
             display: flex;
             background: var(--card-bg);
+            padding: 14px 20px;
+            gap: 8px;
             border-bottom: 1px solid var(--border-color);
             position: sticky;
-            top: 130px;
+            top: 142px;
             z-index: 90;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .tab-btn {
             flex: 1;
-            padding: 14px;
+            padding: 11px 0;
             text-align: center;
             font-weight: 700;
             font-size: 14px;
             color: var(--text-sub);
-            border: none;
-            background: none;
+            border: 1px solid var(--border-color);
+            background: #f8fafc;
+            border-radius: 20px;
             cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
         .tab-btn.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+            color: #ffffff;
+            background-color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
         }
 
-        /* 메인 리스트 */
+        /* 메인 리스트 영역 */
         main {
-            padding: 16px 20px 40px 20px;
+            padding: 18px 20px 40px 20px;
             flex: 1;
         }
 
         .list-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .history-card {
             background-color: var(--card-bg);
             border-radius: var(--radius-lg);
-            padding: 14px 16px;
+            padding: 16px 18px;
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: transform 0.1s ease, background-color 0.2s;
+            transition: transform 0.15s ease, border-color 0.2s, box-shadow 0.2s;
         }
 
         .history-card:hover {
             border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
         }
 
         .history-card:active {
             transform: scale(0.98);
-            background-color: #f8fafc;
         }
 
         .history-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             min-width: 0;
         }
 
         .icon-circle {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -192,6 +202,7 @@
             font-size: 18px;
             color: white;
             flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         .icon-income { background: linear-gradient(135deg, #22c55e, #15803d); }
@@ -203,63 +214,69 @@
         }
 
         .history-info .title {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 750;
             color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            letter-spacing: -0.3px;
         }
 
         .history-info .date {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-sub);
-            margin-top: 2px;
+            margin-top: 3px;
+            font-weight: 500;
         }
 
         .history-right {
             text-align: right;
             flex-shrink: 0;
-            margin-left: 8px;
+            margin-left: 10px;
         }
 
         .amount-income {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 800;
             color: var(--income-color);
+            letter-spacing: -0.3px;
         }
 
         .amount-expense {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 800;
             color: var(--expense-color);
+            letter-spacing: -0.3px;
         }
 
         .link-badge-text {
             font-size: 13px;
             font-weight: 700;
-            color: #3b82f6;
+            color: #2563eb;
             background: #eff6ff;
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 8px;
             display: inline-flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
+            border: 1px solid #dbeafe;
         }
 
         .balance-text {
             font-size: 12px;
             color: var(--text-sub);
-            margin-top: 2px;
+            margin-top: 3px;
+            font-weight: 500;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            font-size: 12px;
+            padding: 24px;
+            font-size: 13px;
             color: var(--text-sub);
             border-top: 1px solid var(--border-color);
             margin-top: auto;
@@ -313,7 +330,6 @@
             const response = await fetch('data.json');
             const rawData = await response.json();
             
-            // 자동으로 잔액 계산하기 로직 추가
             let runningBalance = 0;
             historyData = rawData.map(item => {
                 const amount = item.amount || 0;
@@ -322,7 +338,6 @@
                 } else if (item.type === '출금') {
                     runningBalance -= amount;
                 }
-                // 계산된 잔액을 객체에 부여
                 return { ...item, calcBalance: runningBalance };
             });
 
@@ -384,7 +399,7 @@
                     <div class="history-info">
                         <div class="title">
                             ${item.content}
-                            ${hasLink ? '<i class="fa-solid fa-external-link-alt" style="font-size:11px; margin-left:4px; color:#3b82f6;"></i>' : ''}
+                            ${hasLink ? '<i class="fa-solid fa-external-link-alt" style="font-size:12px; margin-left:4px; color:#3b82f6;"></i>' : ''}
                         </div>
                         <div class="date">${item.date || '기록 항목'}</div>
                     </div>
@@ -402,13 +417,10 @@
 
     function setTab(filter, element) {
         currentFilter = filter;
-        querySelectorAll_safe();
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         element.classList.add('active');
         renderList();
     }
-
-    function querySelectorAll_safe() {}
 
     document.addEventListener('DOMContentLoaded', loadData);
 </script>
