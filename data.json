@@ -3,44 +3,38 @@
     "date": "2024. 05. 27",
     "content": "이월금",
     "type": "입금",
-    "amount": 7380055,
-    "balance": 7380055
+    "amount": 7380055
   },
   {
     "date": "2024. 06. 14",
     "content": "태년 모친상",
     "type": "출금",
-    "amount": 200000,
-    "balance": 7180055
+    "amount": 200000
   },
   {
     "date": "2024. 10. 18",
     "content": "영형 여혼",
     "type": "출금",
     "amount": 200000,
-    "balance": 6980055,
     "link": "https://docs.google.com/spreadsheets/d/1Y7dfeYgNz7V9leF0hAYqPD0YLKJr8laf8MoW0UjrlG8/edit?usp=drivesdk"
   },
   {
     "date": "2024. 12. 18",
     "content": "명희 모친상",
     "type": "출금",
-    "amount": 200000,
-    "balance": 6780055
+    "amount": 200000
   },
   {
     "date": "2025. 05. 20",
     "content": "인숙 시부상",
     "type": "출금",
-    "amount": 200000,
-    "balance": 6580055
+    "amount": 200000
   },
   {
     "date": "2025. 05. 01",
     "content": "2025년 회비 및 찬조",
     "type": "입금",
     "amount": 3300000,
-    "balance": 9880055,
     "link": "https://docs.google.com/spreadsheets/u/0/d/1qkyvo3IfLwHP7ZK7dUljGEGnhwKdQEt79eifce0h1fs/htmlview"
   },
   {
@@ -48,7 +42,6 @@
     "content": "울산 경비",
     "type": "출금",
     "amount": 1432090,
-    "balance": 8447965,
     "link": "https://docs.google.com/spreadsheets/d/1lYqnNYiXazAzdXr3R_FeFAUkKrl4P1Mj9bvDky6evMg/edit?gid=1982370978#gid=1982370978"
   },
   {
@@ -56,44 +49,38 @@
     "content": "울산 영상",
     "type": "링크",
     "amount": 0,
-    "balance": 0,
     "link": "https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit?usp=drivesdk"
   },
   {
     "date": "2025. 05월 ~ 현재",
     "content": "이자 및 필요경비",
     "type": "입금",
-    "amount": 6448,
-    "balance": 8454413
+    "amount": 6448
   },
   {
     "date": "2025. 05. 31",
     "content": "용주 자혼",
     "type": "출금",
     "amount": 200000,
-    "balance": 8254413,
     "link": "https://docs.google.com/spreadsheets/d/1U-qDFua0Fs59FTrodK0E5QC-v9KLfdW_2fl1qhFLmXE/edit?usp=drivesdk"
   },
   {
     "date": "2025. 09. 08",
     "content": "홍권 본인상",
     "type": "출금",
-    "amount": 200000,
-    "balance": 8054413
+    "amount": 200000
   },
   {
     "date": "2025. 09. 10",
     "content": "류홍권 찬조",
     "type": "입금",
-    "amount": 100000,
-    "balance": 8154413
+    "amount": 100000
   },
   {
     "date": "2026. 01. 31",
     "content": "명희 여혼",
     "type": "출금",
     "amount": 200000,
-    "balance": 7954413,
     "link": "https://docs.google.com/spreadsheets/d/1hY22xZN6Tq-FgsdY2F4Qo_kyC98wEUOkLCpiau2IcJE/edit?usp=drivesdk"
   },
   {
@@ -101,7 +88,6 @@
     "content": "2026년 회비 및 찬조",
     "type": "입금",
     "amount": 7580000,
-    "balance": 15534413,
     "link": "https://docs.google.com/spreadsheets/d/1qkyvo3IfLwHP7ZK7dUljGEGnhwKdQEt79eifce0h1fs/edit?gid=1913885462#gid=1913885462"
   },
   {
@@ -109,7 +95,6 @@
     "content": "목포 신안 경비",
     "type": "출금",
     "amount": 10676140,
-    "balance": 4858273,
     "link": "https://docs.google.com/spreadsheets/d/1acOkvif6UIygyD_SkFOD3QeGBJRG3yOJkyU-GXnybhw/edit?gid=1024390368#gid=1024390368"
   },
   {
@@ -117,37 +102,32 @@
     "content": "목포 신안 영상",
     "type": "링크",
     "amount": 0,
-    "balance": 0,
     "link": "https://docs.google.com/spreadsheets/d/1YRklQbcR3KDdv_YpTlgwemRWdzPiG7sNyB-wA7y_w8Y/edit?usp=drivesdk"
   },
   {
     "date": "2026. 05. 23 ~ 05. 25",
     "content": "추가 경비 각출",
     "type": "입금",
-    "amount": 798000,
-    "balance": 5656273
+    "amount": 798000
   },
   {
     "date": "2026. 05. 26",
     "content": "추후 찬조",
     "type": "입금",
     "amount": 134000,
-    "balance": 5790273,
     "link": "https://docs.google.com/spreadsheets/d/1U7xRJnKm037_czml0GT79zTEbLJ2DsZAN6uUsqAMxaw/edit?usp=drivesdk"
   },
   {
     "date": "2026. 08. 22",
     "content": "위웅 모친상",
     "type": "출금",
-    "amount": 200000,
-    "balance": 5590273
+    "amount": 200000
   },
   {
     "date": "",
     "content": "추억의 게임방",
     "type": "링크",
     "amount": 0,
-    "balance": 0,
     "link": "https://minigame-heaven-opal.vercel.app/"
   }
 ]
