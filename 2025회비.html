@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025년 가호회 회비 및 찬조 내역</title>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Pretendard', 'Malgun Gothic', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0 15px 30px 15px;
+            line-height: 1.35;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 상단 헤더 화면 고정 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            padding: 14px 15px;
+            margin-bottom: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            border-bottom: 2px solid #1e40af;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 3px 0 0 0;
+            font-size: 13px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* 요약 카드 */
+        .summary-card {
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .summary-info .sub-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .summary-info .total-amount {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-top: 2px;
+        }
+
+        /* 테이블 스타일 */
+        .table-container {
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            overflow-x: auto;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 800;
+            padding: 10px 12px;
+            border-bottom: 1.5px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 9px 12px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .number-col {
+            text-align: center;
+            color: var(--text-sub);
+            width: 50px;
+        }
+
+        .name-col {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .amount-col {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* 링크 스타일 */
+        .link-text {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .link-text:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 30px;
+            padding: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 8px 20px 8px;
+            }
+            header {
+                padding: 12px 10px;
+            }
+            th, td {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>2025년 가호회 회비 및 찬조 내역</h1>
+        <p>가호회 정기 회비 및 찬조 기록</p>
+    </header>
+
+    <div class="summary-card">
+        <div class="summary-info">
+            <div class="sub-title">회비 납부 (26명)</div>
+            <div class="total-amount">합계: 3,300,000원</div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="number-col">연번</th>
+                    <th class="name-col">성명</th>
+                    <th style="text-align: right;">회비</th>
+                    <th>찬조 / 비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="number-col">1</td><td class="name-col">명희(합천)</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">2</td><td class="name-col">행자</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">3</td><td class="name-col">태연</td><td class="amount-col">100,000원</td><td class="amount-col" style="text-align: left;">200,000원</td></tr>
+                <tr><td class="number-col">4</td><td class="name-col">홍희</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">5</td><td class="name-col">영희</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">6</td><td class="name-col">홍숙</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">7</td><td class="name-col">명희(대구)</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">8</td><td class="name-col">희자</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">9</td><td class="name-col">인순</td><td class="amount-col">100,000원</td><td><a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1959123699" target="_blank" class="link-text">쑥떡 🔗</a></td></tr>
+                <tr><td class="number-col">10</td><td class="name-col">영형</td><td class="amount-col">100,000원</td><td class="amount-col" style="text-align: left;">100,000원</td></tr>
+                <tr><td class="number-col">11</td><td class="name-col">위웅</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">12</td><td class="name-col">위철</td><td class="amount-col">100,000원</td><td class="amount-col" style="text-align: left;">100,000원</td></tr>
+                <tr><td class="number-col">13</td><td class="name-col">홍재</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">14</td><td class="name-col">홍률</td><td class="amount-col">100,000원</td><td class="amount-col" style="text-align: left;">100,000원</td></tr>
+                <tr><td class="number-col">15</td><td class="name-col">해수</td><td class="amount-col">100,000원</td><td><a href="https://docs.google.com/spreadsheets/d/1CkzNCROcCxaCx9dnmoT4rBTbQ0Iyr6HFGVr-MykD4wc/edit#gid=1296296973" target="_blank" class="link-text">펜션79만원(별도찬조) 🔗</a></td></tr>
+                <tr><td class="number-col">16</td><td class="name-col">홍철</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">17</td><td class="name-col">용주</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">18</td><td class="name-col">연종</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">19</td><td class="name-col">위택</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">20</td><td class="name-col">동화</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">21</td><td class="name-col">수남</td><td class="amount-col">100,000원</td><td class="amount-col" style="text-align: left;">100,000원</td></tr>
+                <tr><td class="number-col">22</td><td class="name-col">옥희</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">23</td><td class="name-col">민옥</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">24</td><td class="name-col">인숙</td><td class="amount-col">100,000원</td><td class="amount-col" style="text-align: left;">100,000원</td></tr>
+                <tr><td class="number-col">25</td><td class="name-col">증자</td><td class="amount-col">100,000원</td><td>-</td></tr>
+                <tr><td class="number-col">26</td><td class="name-col">월수</td><td class="amount-col">100,000원</td><td>-</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>가호회 회비 관리 시스템 (2025)</p>
+    </footer>
+</div>
+
+</body>
+</html>
