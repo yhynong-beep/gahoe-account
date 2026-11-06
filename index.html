@@ -118,7 +118,7 @@
             letter-spacing: -0.3px;
         }
 
-        /* 탭 메뉴 (눈이 편안한 알약/캡슐 버튼 스타일) */
+        /* 탭 메뉴 (알약/캡슐 스타일) */
         .tab-section {
             display: flex;
             background: var(--card-bg);
@@ -173,6 +173,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 12px; /* 좌우 항목 간 최소 간격 확보 */
             transition: transform 0.15s ease, border-color 0.2s, box-shadow 0.2s;
         }
 
@@ -188,8 +189,9 @@
         .history-left {
             display: flex;
             align-items: center;
-            gap: 14px;
-            min-width: 0;
+            gap: 12px;
+            flex: 1; /* 제목 영역이 남은 공간을 알맞게 차지 */
+            min-width: 0; /* 글자 잘림 처리가 제대로 작동하도록 설정 */
         }
 
         .icon-circle {
@@ -210,44 +212,51 @@
         .icon-link { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
 
         .history-info {
+            flex: 1;
             min-width: 0;
         }
 
+        /* 💡 핵심: 제목이 길면 자동으로 줄바꿈(최대 2줄)되어 깔끔하게 잘림 */
         .history-info .title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 750;
             color: var(--text-main);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            line-height: 1.35;
             letter-spacing: -0.3px;
+            
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 최대 2줄까지만 표시 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: keep-all; /* 단어 단위로 예쁘게 줄바꿈 */
         }
 
         .history-info .date {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-sub);
-            margin-top: 3px;
+            margin-top: 4px;
             font-weight: 500;
         }
 
+        /* 💡 핵심: 우측 금액 및 링크 버튼 영역이 밀리지 않도록 고정 */
         .history-right {
             text-align: right;
             flex-shrink: 0;
-            margin-left: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
         }
 
         .amount-income {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             color: var(--income-color);
             letter-spacing: -0.3px;
         }
 
         .amount-expense {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
             color: var(--expense-color);
             letter-spacing: -0.3px;
@@ -264,6 +273,7 @@
             align-items: center;
             gap: 5px;
             border: 1px solid #dbeafe;
+            white-space: nowrap; /* 보기 버튼 글자 절대 안깎임 */
         }
 
         .balance-text {
@@ -271,6 +281,7 @@
             color: var(--text-sub);
             margin-top: 3px;
             font-weight: 500;
+            white-space: nowrap;
         }
 
         footer {
@@ -399,7 +410,7 @@
                     <div class="history-info">
                         <div class="title">
                             ${item.content}
-                            ${hasLink ? '<i class="fa-solid fa-external-link-alt" style="font-size:12px; margin-left:4px; color:#3b82f6;"></i>' : ''}
+                            ${hasLink ? '<i class="fa-solid fa-link" style="font-size:11px; margin-left:4px; color:#3b82f6;"></i>' : ''}
                         </div>
                         <div class="date">${item.date || '기록 항목'}</div>
                     </div>
