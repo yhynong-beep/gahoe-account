@@ -59,7 +59,7 @@
     margin-bottom: 27px;
   }
   .summary-card {
-    padding: 18px 20px;
+    padding: 12px 20px;
     background: #f9fbfd;
     border: 1px solid var(--line);
     border-radius: 12px;
@@ -70,14 +70,14 @@
   }
   .label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: var(--muted);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
   }
   .value {
     color: var(--navy);
-    font-size: clamp(21px, 3.5vw, 27px);
+    font-size: clamp(25px, 3.8vw, 30px);
     font-weight: 800;
     letter-spacing: -.03em;
   }
@@ -85,7 +85,7 @@
   h2 {
     margin: 0 0 12px;
     color: var(--navy);
-    font-size: 17px;
+    font-size: 19px;
   }
   .table-wrap {
     overflow-x: auto;
@@ -104,14 +104,14 @@
   th:nth-child(3), td:nth-child(3) { width: 50%; }
   thead { background: var(--orange); color: #3c2b1b; }
   th {
-    padding: 13px 12px;
-    font-size: 14px;
+    padding: 14px 12px;
+    font-size: 16px;
     font-weight: 800;
   }
   td {
-    padding: 13px 12px;
+    padding: 15px 12px;
     border-top: 1px solid var(--line);
-    font-size: 15px;
+    font-size: 17px;
   }
   tbody tr:nth-child(even) { background: #fbfcfe; }
   tbody tr:hover { background: #fff8ef; }
@@ -119,7 +119,8 @@
   td.name { font-weight: 600; }
   td.amount {
     color: #a45b19;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 800;
     font-variant-numeric: tabular-nums;
   }
   tfoot td {
@@ -141,20 +142,23 @@
     h1 { font-size: clamp(21px, 6vw, 26px); }
     main { padding: 17px 13px 22px; }
     .summary { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 21px; }
-    .summary-card { min-width: 0; padding: 13px 10px; }
-    .label { font-size: 11px; margin-bottom: 6px; }
-    .value { font-size: clamp(17px, 5vw, 22px); }
-    h2 { font-size: 15px; }
-    th { padding: 11px 5px; font-size: 12px; }
-    td { padding: 12px 4px; font-size: 13px; }
-    td.amount { font-size: 12px; white-space: nowrap; letter-spacing: -.03em; }
-    footer { font-size: 11px; }
+    .summary-card { min-width: 0; padding: 9px 10px; }
+    .label { font-size: 13px; margin-bottom: 4px; }
+    .value { font-size: clamp(21px, 5.8vw, 25px); }
+    h2 { font-size: 18px; }
+    th { padding: 12px 5px; font-size: 15px; }
+    td { padding: 14px 4px; font-size: 16px; }
+    td.amount { font-size: 15px; white-space: nowrap; letter-spacing: -.03em; }
+    footer { font-size: 13px; }
   }
   @media (max-width: 360px) {
-    .summary { grid-template-columns: 1fr; }
-    th { font-size: 11px; }
-    td { font-size: 12px; }
-    td.amount { font-size: 11px; }
+    .summary { grid-template-columns: 1fr 1fr; }
+    .summary-card { padding: 8px 7px; }
+    .label { font-size: 12px; }
+    .value { font-size: 20px; }
+    th { font-size: 13px; }
+    td { font-size: 15px; }
+    td.amount { font-size: 13px; }
   }
   @media print {
     body { padding: 0; background: #fff; }
