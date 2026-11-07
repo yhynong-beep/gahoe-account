@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>목포·신안 추억 여행기 & 시</title>
+  <title>목포 여행 - 류영형</title>
   <style>
     :root {
-      --primary-color: #1e3a8a;
-      --accent-color: #3b82f6;
-      --bg-color: #f8fafc;
+      --bg-gradient: linear-gradient(135deg, #fdfbf7 0%, #eef2f7 100%);
       --card-bg: #ffffff;
-      --text-main: #1f2937;
-      --text-sub: #4b5563;
+      --text-main: #2d3748;
+      --text-sub: #718096;
+      --accent-gold: #d69e2e;
     }
 
     * {
@@ -22,173 +21,111 @@
 
     body {
       font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
-      background-color: var(--bg-color);
+      background: var(--bg-gradient);
       color: var(--text-main);
-      line-height: 1.7;
-      padding: 16px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
       word-break: keep-all;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    header {
-      text-align: center;
-      padding: 24px 16px;
-      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-      color: #ffffff;
-      border-radius: 16px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    header h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    header p {
-      font-size: 1.05rem;
-      opacity: 0.9;
-    }
-
-    .card {
+    .poem-card {
+      width: 100%;
+      max-width: 460px;
       background: var(--card-bg);
-      border-radius: 16px;
-      padding: 24px 20px;
-      margin-bottom: 20px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 24px;
+      padding: 50px 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(214, 158, 46, 0.2);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .card-title {
-      font-size: 1.3rem;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 8px;
-      margin-bottom: 16px;
+    /* 상단 포인트 장식 라인 */
+    .poem-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #d69e2e, #3182ce, #d69e2e);
+    }
+
+    .poem-header {
+      margin-bottom: 35px;
+    }
+
+    .poem-title {
+      font-size: 1.8rem;
       font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .poem-author {
+      font-size: 1.1rem;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background-color: #e2e8f0;
+      margin: 20px auto;
     }
 
     .poem-body {
-      font-size: 1.15rem;
-      line-height: 2.0;
-      text-align: center;
-      color: #111827;
-      background-color: #f1f5f9;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 10px;
+      font-size: 1.25rem;
+      line-height: 2.3;
+      color: #2d3748;
+      margin-bottom: 40px;
+      font-family: 'Batang', 'Georgia', serif; /* 시 느낌을 살리는 명조체 계열 */
     }
 
-    .section-date {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1d4ed8;
-      margin-top: 16px;
-      margin-bottom: 8px;
-      display: inline-block;
-      background-color: #eff6ff;
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
-    ul.item-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul.item-list li {
-      padding: 10px 12px;
-      border-bottom: 1px solid #f3f4f6;
-      font-size: 1.05rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    ul.item-list li:last-child {
-      border-bottom: none;
-    }
-
-    .badge {
-      background-color: #e0f2fe;
-      color: #0369a1;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      margin-right: 8px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.95rem;
+    .poem-footer {
+      font-size: 0.9rem;
       color: var(--text-sub);
+      border-top: 1px dashed #e2e8f0;
+      padding-top: 20px;
+    }
+
+    .footer-group {
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 4px;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- 헤더 영역 -->
-    <header>
-      <h1>목포·신안 아름다운 추억 여행</h1>
-      <p>함께한 소중한 순간들과 시 한 편</p>
-    </header>
-
-    <!-- 시 영역 카드 -->
-    <div class="card">
-      <div class="card-title">📜 목포 여행 (류영형)</div>
-      <div class="poem-body">
-        천사 대교 바람 타고<br>
-        유달산 자락에 새긴 추억<br><br>
-        함께 웃던 그 미소 그대로<br>
-        황금빛 계절 속에 머문다.
-      </div>
+  <div class="poem-card">
+    <!-- 시 제목 및 작가 -->
+    <div class="poem-header">
+      <h1 class="poem-title">목포 여행</h1>
+      <div class="divider"></div>
+      <p class="poem-author">지은이 : 류영형</p>
     </div>
 
-    <!-- 추억 일정 및 기록 카드 -->
-    <div class="card">
-      <div class="card-title">📸 추억 일기 & 일정 목록</div>
-      
-      <div class="section-date">2026. 5. 23 (1일차)</div>
-      <ul class="item-list">
-        <li><span><span class="badge">출발</span> 경남도청 주차장 출발</span></li>
-        <li><span><span class="badge">경유</span> 문산 휴게소</span></li>
-        <li><span><span class="badge">점심</span> 남항정 식사</span></li>
-        <li><span><span class="badge">체험</span> 천사 요트 체험 및 춤 대결</span></li>
-        <li><span><span class="badge">관광</span> 천사섬 분재 정원</span></li>
-        <li><span><span class="badge">저녁</span> 소문난 북항 횟집</span></li>
-      </ul>
-
-      <div class="section-date">2026. 5. 24 (2일차)</div>
-      <ul class="item-list">
-        <li><span><span class="badge">아침</span> 오션호텔 아침 식사 & 좌담</span></li>
-        <li><span><span class="badge">관광</span> 퍼플섬 퍼플교 & 라벤더 정원</span></li>
-        <li><span><span class="badge">점심</span> 섬마을 식당</span></li>
-        <li><span><span class="badge">카페</span> 꽃길 카페</span></li>
-        <li><span><span class="badge">관광</span> 천사 뮤지엄 파크</span></li>
-        <li><span><span class="badge">저녁</span> 목포 오봉집</span></li>
-      </ul>
-
-      <div class="section-date">2026. 5. 25 (3일차)</div>
-      <ul class="item-list">
-        <li><span><span class="badge">관광</span> 목포 해상 케이블카 & 유달산</span></li>
-        <li><span><span class="badge">점심</span> 서해 아구찜 식사</span></li>
-        <li><span><span class="badge">수필</span> 데이트 (인숙 수필)</span></li>
-        <li><span><span class="badge">기록</span> 홍철이의 신안·목포 여행기</span></li>
-      </ul>
+    <!-- 시 본문 -->
+    <div class="poem-body">
+      천사 대교 바람 타고<br>
+      유달산 자락에 새긴 추억<br><br>
+      함께 웃던 그 미소 그대로<br>
+      황금빛 계절 속에 머문다.
     </div>
 
-    <footer>
-      <p>가호회 모임 · 21인방의 황금빛 추억 💛</p>
-    </footer>
+    <!-- 하단 부가 정보 -->
+    <div class="poem-footer">
+      <p class="footer-group">가호회 · 21인방</p>
+      <p>황금빛 추억을 담아 💛</p>
+    </div>
   </div>
 
 </body>
