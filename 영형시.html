@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>목포·신안 추억 여행기 & 시</title>
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --accent-color: #3b82f6;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1f2937;
+      --text-sub: #4b5563;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding: 16px;
+      word-break: keep-all;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 24px 16px;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: #ffffff;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px 20px;
+      margin-bottom: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .poem-body {
+      font-size: 1.15rem;
+      line-height: 2.0;
+      text-align: center;
+      color: #111827;
+      background-color: #f1f5f9;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    .section-date {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1d4ed8;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      display: inline-block;
+      background-color: #eff6ff;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    ul.item-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.item-list li {
+      padding: 10px 12px;
+      border-bottom: 1px solid #f3f4f6;
+      font-size: 1.05rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul.item-list li:last-child {
+      border-bottom: none;
+    }
+
+    .badge {
+      background-color: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      margin-right: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95rem;
+      color: var(--text-sub);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 헤더 영역 -->
+    <header>
+      <h1>목포·신안 아름다운 추억 여행</h1>
+      <p>함께한 소중한 순간들과 시 한 편</p>
+    </header>
+
+    <!-- 시 영역 카드 -->
+    <div class="card">
+      <div class="card-title">📜 목포 여행 (류영형)</div>
+      <div class="poem-body">
+        천사 대교 바람 타고<br>
+        유달산 자락에 새긴 추억<br><br>
+        함께 웃던 그 미소 그대로<br>
+        황금빛 계절 속에 머문다.
+      </div>
+    </div>
+
+    <!-- 추억 일정 및 기록 카드 -->
+    <div class="card">
+      <div class="card-title">📸 추억 일기 & 일정 목록</div>
+      
+      <div class="section-date">2026. 5. 23 (1일차)</div>
+      <ul class="item-list">
+        <li><span><span class="badge">출발</span> 경남도청 주차장 출발</span></li>
+        <li><span><span class="badge">경유</span> 문산 휴게소</span></li>
+        <li><span><span class="badge">점심</span> 남항정 식사</span></li>
+        <li><span><span class="badge">체험</span> 천사 요트 체험 및 춤 대결</span></li>
+        <li><span><span class="badge">관광</span> 천사섬 분재 정원</span></li>
+        <li><span><span class="badge">저녁</span> 소문난 북항 횟집</span></li>
+      </ul>
+
+      <div class="section-date">2026. 5. 24 (2일차)</div>
+      <ul class="item-list">
+        <li><span><span class="badge">아침</span> 오션호텔 아침 식사 & 좌담</span></li>
+        <li><span><span class="badge">관광</span> 퍼플섬 퍼플교 & 라벤더 정원</span></li>
+        <li><span><span class="badge">점심</span> 섬마을 식당</span></li>
+        <li><span><span class="badge">카페</span> 꽃길 카페</span></li>
+        <li><span><span class="badge">관광</span> 천사 뮤지엄 파크</span></li>
+        <li><span><span class="badge">저녁</span> 목포 오봉집</span></li>
+      </ul>
+
+      <div class="section-date">2026. 5. 25 (3일차)</div>
+      <ul class="item-list">
+        <li><span><span class="badge">관광</span> 목포 해상 케이블카 & 유달산</span></li>
+        <li><span><span class="badge">점심</span> 서해 아구찜 식사</span></li>
+        <li><span><span class="badge">수필</span> 데이트 (인숙 수필)</span></li>
+        <li><span><span class="badge">기록</span> 홍철이의 신안·목포 여행기</span></li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>가호회 모임 · 21인방의 황금빛 추억 💛</p>
+    </footer>
+  </div>
+
+</body>
+</html>
