@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>2026년 가호회 추후 찬조</title>
 <style>
   :root {
@@ -95,9 +95,13 @@
   table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
     text-align: center;
-    min-width: 430px;
+    min-width: 0;
   }
+  th:first-child, td:first-child { width: 15%; }
+  th:nth-child(2), td:nth-child(2) { width: 35%; }
+  th:nth-child(3), td:nth-child(3) { width: 50%; }
   thead { background: var(--orange); color: #3c2b1b; }
   th {
     padding: 13px 12px;
@@ -130,10 +134,27 @@
     text-align: right;
   }
   @media (max-width: 560px) {
-    body { padding: 14px 9px; }
-    header { padding: 25px 21px 22px; }
-    main { padding: 21px 17px 26px; }
-    .summary { grid-template-columns: 1fr; gap: 10px; }
+    body { padding: 8px; }
+    .sheet { border-radius: 13px; }
+    header { padding: 22px 17px 20px; }
+    .eyebrow { font-size: 11px; }
+    h1 { font-size: clamp(21px, 6vw, 26px); }
+    main { padding: 17px 13px 22px; }
+    .summary { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 21px; }
+    .summary-card { min-width: 0; padding: 13px 10px; }
+    .label { font-size: 11px; margin-bottom: 6px; }
+    .value { font-size: clamp(17px, 5vw, 22px); }
+    h2 { font-size: 15px; }
+    th { padding: 11px 5px; font-size: 12px; }
+    td { padding: 12px 4px; font-size: 13px; }
+    td.amount { font-size: 12px; white-space: nowrap; letter-spacing: -.03em; }
+    footer { font-size: 11px; }
+  }
+  @media (max-width: 360px) {
+    .summary { grid-template-columns: 1fr; }
+    th { font-size: 11px; }
+    td { font-size: 12px; }
+    td.amount { font-size: 11px; }
   }
   @media print {
     body { padding: 0; background: #fff; }
