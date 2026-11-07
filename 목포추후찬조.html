@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 가호회 추후 찬조</title>
+<style>
+  :root {
+    --navy: #1c3854;
+    --blue: #315f87;
+    --orange: #f2b16d;
+    --orange-pale: #fff5e9;
+    --line: #dce4ec;
+    --muted: #68798a;
+    --page: #f3f6f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 36px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: var(--page);
+    color: #263747;
+    font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  }
+  .sheet {
+    width: min(100%, 760px);
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e5ebf1;
+    border-radius: 18px;
+    box-shadow: 0 14px 38px rgba(28, 56, 84, .10);
+  }
+  header {
+    padding: 32px 36px 29px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+  }
+  .eyebrow {
+    margin: 0 0 9px;
+    color: #c9d9e7;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .13em;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(23px, 4vw, 30px);
+    letter-spacing: -.04em;
+  }
+  main { padding: 28px 36px 34px; }
+  .summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 27px;
+  }
+  .summary-card {
+    padding: 18px 20px;
+    background: #f9fbfd;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .summary-card.total {
+    background: var(--orange-pale);
+    border-color: #f2d4b4;
+  }
+  .label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .value {
+    color: var(--navy);
+    font-size: clamp(21px, 3.5vw, 27px);
+    font-weight: 800;
+    letter-spacing: -.03em;
+  }
+  .total .value { color: #a45b19; }
+  h2 {
+    margin: 0 0 12px;
+    color: var(--navy);
+    font-size: 17px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    min-width: 430px;
+  }
+  thead { background: var(--orange); color: #3c2b1b; }
+  th {
+    padding: 13px 12px;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  td {
+    padding: 13px 12px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+  }
+  tbody tr:nth-child(even) { background: #fbfcfe; }
+  tbody tr:hover { background: #fff8ef; }
+  td:first-child { color: var(--muted); }
+  td.name { font-weight: 600; }
+  td.amount {
+    color: #a45b19;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  tfoot td {
+    background: var(--orange-pale);
+    border-top: 2px solid #edc18f;
+    font-weight: 800;
+  }
+  footer {
+    margin-top: 16px;
+    color: #8290a0;
+    font-size: 12px;
+    text-align: right;
+  }
+  @media (max-width: 560px) {
+    body { padding: 14px 9px; }
+    header { padding: 25px 21px 22px; }
+    main { padding: 21px 17px 26px; }
+    .summary { grid-template-columns: 1fr; gap: 10px; }
+  }
+  @media print {
+    body { padding: 0; background: #fff; }
+    .sheet { width: 100%; border: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<article class="sheet">
+  <header>
+    <p class="eyebrow">2026 · 가호회</p>
+    <h1>2026년 가호회 추후 찬조</h1>
+  </header>
+  <main>
+    <section class="summary" aria-label="찬조 요약">
+      <div class="summary-card">
+        <span class="label">추후 찬조 납부 인원</span>
+        <div class="value">7명</div>
+      </div>
+      <div class="summary-card total">
+        <span class="label">총 찬조금</span>
+        <div class="value">₩134,000</div>
+      </div>
+    </section>
+    <section>
+      <h2>찬조 내역</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">연번</th>
+              <th scope="col">성명</th>
+              <th scope="col">추후 찬조</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td class="name">류영형</td><td class="amount">₩12,000</td></tr>
+            <tr><td>2</td><td class="name">류위철</td><td class="amount">₩12,000</td></tr>
+            <tr><td>3</td><td class="name">류월수</td><td class="amount">₩62,000</td></tr>
+            <tr><td>4</td><td class="name">류하자</td><td class="amount">₩12,000</td></tr>
+            <tr><td>5</td><td class="name">류위택</td><td class="amount">₩12,000</td></tr>
+            <tr><td>6</td><td class="name">류동화</td><td class="amount">₩12,000</td></tr>
+            <tr><td>7</td><td class="name">정은희</td><td class="amount">₩12,000</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td colspan="2">합계</td><td class="amount">₩134,000</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+    <footer>총 7명 · 총 찬조금 ₩134,000</footer>
+  </main>
+</article>
+</body>
+</html>
