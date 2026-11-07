@@ -1,132 +1,209 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>목포 여행 - 류영형</title>
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #fdfbf7 0%, #eef2f7 100%);
-      --card-bg: #ffffff;
-      --text-main: #2d3748;
-      --text-sub: #718096;
-      --accent-gold: #d69e2e;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목포 여행 - 류영형</title>
+    <!-- Open Graph for KakaoTalk & Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="목포 여행 - 류영형">
+    <meta property="og:description" content="유달산 노적봉 옛 장군의 손때 묻은 모습... 오랜 고향친구와 함께한 목포 여행 시">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Noto+Sans+KR:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep-sea: #1a2a3a;
+            --bg-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --primary-color: #0b1f3a;
+            --accent-sunset: #c04a22;
+            --text-dark: #111827;
+            --text-muted: #374151;
+            --border-gold: #b8860b;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
-      background: var(--bg-gradient);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      word-break: keep-all;
-    }
+        body {
+            font-family: 'Gowun Batang', serif;
+            font-weight: 700;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px;
+            color: var(--text-dark);
+            line-height: 1.85;
+        }
 
-    .poem-card {
-      width: 100%;
-      max-width: 460px;
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 50px 30px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(214, 158, 46, 0.2);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            padding: 40px 28px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+        }
 
-    /* 상단 포인트 장식 라인 */
-    .poem-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      background: linear-gradient(90deg, #d69e2e, #3182ce, #d69e2e);
-    }
+        /* Ambient background decoration */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #0b1f3a, #c04a22, #d97706);
+        }
 
-    .poem-header {
-      margin-bottom: 35px;
-    }
+        .header {
+            margin-bottom: 32px;
+            position: relative;
+            padding-bottom: 20px;
+        }
 
-    .poem-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #1a202c;
-      margin-bottom: 10px;
-      letter-spacing: -0.01em;
-    }
+        .header::after {
+            content: '⚓';
+            display: block;
+            font-size: 1.3rem;
+            margin-top: 15px;
+            color: var(--accent-sunset);
+        }
 
-    .poem-author {
-      font-size: 1.1rem;
-      color: var(--accent-gold);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-    }
+        .title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
 
-    .divider {
-      width: 40px;
-      height: 2px;
-      background-color: #e2e8f0;
-      margin: 20px auto;
-    }
+        .author {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
 
-    .poem-body {
-      font-size: 1.25rem;
-      line-height: 2.3;
-      color: #2d3748;
-      margin-bottom: 40px;
-      font-family: 'Batang', 'Georgia', serif; /* 시 느낌을 살리는 명조체 계열 */
-    }
+        .divider {
+            width: 45px;
+            height: 3px;
+            background-color: var(--border-gold);
+            margin: 0 auto 30px auto;
+            opacity: 0.85;
+        }
 
-    .poem-footer {
-      font-size: 0.9rem;
-      color: var(--text-sub);
-      border-top: 1px dashed #e2e8f0;
-      padding-top: 20px;
-    }
+        .poem-body {
+            font-size: 1.1rem;
+            font-weight: 700;
+            word-break: keep-all;
+        }
 
-    .footer-group {
-      font-weight: 600;
-      color: #4a5568;
-      margin-bottom: 4px;
-    }
-  </style>
+        .stanza {
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .stanza:last-child {
+            margin-bottom: 0;
+        }
+
+        .stanza p {
+            margin-bottom: 5px;
+        }
+
+        /* Stanza specific highlights */
+        .stanza-1 { color: #0a192f; }
+        .stanza-2 { color: #0f2d4a; }
+        .stanza-3 { color: #1a1a1a; }
+        .stanza-4 { 
+            color: #7c2d12; 
+            font-weight: 700;
+            background: linear-gradient(180deg, rgba(192, 74, 34, 0.08) 0%, rgba(192, 74, 34, 0.18) 100%);
+            padding: 18px 14px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-sunset);
+        }
+
+        .footer {
+            margin-top: 35px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(0, 0, 0, 0.2);
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #4b5563;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="poem-card">
-    <!-- 시 제목 및 작가 -->
-    <div class="poem-header">
-      <h1 class="poem-title">목포 여행</h1>
-      <div class="divider"></div>
-      <p class="poem-author">지은이 : 류영형</p>
-    </div>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">목포 여행</h1>
+            <p class="author">류 영 형</p>
+        </header>
 
-    <!-- 시 본문 -->
-    <div class="poem-body">
-      천사 대교 바람 타고<br>
-      유달산 자락에 새긴 추억<br><br>
-      함께 웃던 그 미소 그대로<br>
-      황금빛 계절 속에 머문다.
-    </div>
+        <div class="poem-body">
+            <div class="stanza stanza-1">
+                <p>유달산 노적봉</p>
+                <p>옛 장군의 손때 묻은 모습</p>
+                <p>불빛 되어 반짝이고</p>
+                <p>뱃고동 소리</p>
+                <p>고향처럼 달려온다</p>
+            </div>
 
-    <!-- 하단 부가 정보 -->
-    <div class="poem-footer">
-      <p class="footer-group">가호회 · 21인방</p>
-      <p>황금빛 추억을 담아 💛</p>
+            <div class="divider"></div>
+
+            <div class="stanza stanza-2">
+                <p>꽃 향기</p>
+                <p>남도길 따라</p>
+                <p>구름 한 점 바람 두 점</p>
+                <p>검 푸른 바다 위에</p>
+                <p>내 마음도 늬인다</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="stanza stanza-3">
+                <p>오랜 고향친구</p>
+                <p>얼굴에 주름 한 겹</p>
+                <p>정 두 겹 쌓으며</p>
+                <p>변함없는 투박한 말투</p>
+                <p>정겨운 사람냄새</p>
+                <p>부딪힌 술잔 속 밤이</p>
+                <p>익어가면</p>
+                <p>마음속에 젖어들고</p>
+            </div>
+
+            <div class="stanza stanza-4">
+                <p>붉게 물든 항구의 이별</p>
+                <p>고향친구 고향 아지매의 정</p>
+                <p>또다시 만날 날 기약하며</p>
+                <p>가슴으로 전한다</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>목포의 밤바다와 우정을 담아 🌊</p>
+        </footer>
     </div>
-  </div>
 
 </body>
 </html>
