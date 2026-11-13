@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>목포·신안 여행 추억 사진첩</title>
+  <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding-top: 20px;
+            padding-bottom: 40px;
+            padding-left: 15px;
+            padding-right: 15px;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* 타이틀 아래에 위치하며, 아래로 스크롤 시 상단에 고정되는 네비게이션바 */
+        .sticky-nav {
+            position: sticky;
+            top: 15px;
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 12px 15px;
+            border-radius: 14px;
+            margin-bottom: 26px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .nav-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #1d4ed8;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            flex: 1;
+            background-color: #f1f5f9;
+            border: 2px solid #cbd5e1;
+            color: #334155;
+            padding: 10px 0;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+
+        /* 상단 타이틀 배너 */
+        .header-card {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            text-align: center;
+            padding: 26px 20px;
+            border-radius: 18px;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+            margin-bottom: 26px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-sub {
+            font-size: 15px;
+            opacity: 0.95;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* 날짜별 섹션 */
+        .section-box {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 19px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #2563eb;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "📍";
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        /* 카드 목록 */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* 개별 링크 카드 */
+        .card {
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .card:hover, .card:active {
+            border-color: #2563eb;
+            background-color: #fefefe;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .card-label {
+            font-size: 16px;
+            font-weight: 800;
+            color: #2563eb;
+            background: #eff6ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .card-label.video {
+            color: #7c3aed;
+            background: #f5f3ff;
+        }
+
+        .card-label.blog {
+            color: #059669;
+            background: #ecfdf5;
+        }
+
+        .link-badge {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #10b981;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-desc {
+            font-size: 17px;
+            color: #334155;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        /* 푸터 안내 */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 14px;
+            color: #64748b;
+            background: #f1f5f9;
+            border-radius: 12px;
+        }
+    </style>
+ </head>
+ <body>
+  <!-- 상단 타이틀 배너 -->
+  <div class="header-card">
+   <div class="header-title">✨ 목포·신안 여행 추억 사진첩 ✨</div>
+   <div class="header-sub">원하시는 항목을 터치하여 감상하세요</div>
+  </div>
+  <!-- 타이틀 아래에 위치한 빠른 선택 메뉴 (스크롤 시 상단 고정 스티키 적용) -->
+  <div class="sticky-nav">
+   <div class="nav-title">📌 빠른 메뉴 선택</div>
+   <div class="nav-buttons">
+    <button class="nav-btn active" onclick="filterCards('all', this)">전체보기</button>
+    <button class="nav-btn" onclick="filterCards('photo', this)">📸 사진</button>
+    <button class="nav-btn" onclick="filterCards('video', this)">🎥 영상</button>
+    <button class="nav-btn" onclick="filterCards('blog', this)">📝 블로그</button>
+   </div>
+  </div>
+  <div class="section-box" data-section="0">
+   <div class="section-title">추억 영상1 (2026.5.23.)</div>
+   <div class="card-list">
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=329498728&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진1</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">경남도청 주차장 출발</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1861920792&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진2</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">문산 휴게소</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1954939305&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진3</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.점심식사(남항정)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1127618310&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진4</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.점심식사(남항정)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=162390548&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진5</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.점심식사(남항정)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=949915891&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진6</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.점심식사(남항정)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=273770661&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진7</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=298100053&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진8</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(용주, 홍철, 홍재, 동화)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=2133611144&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진9</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(수남, 위철, 홍재)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=638213602&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진10</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(위웅, 홍철, 은희, 월수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=712965780&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진11</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(용주, 동화)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=404370499&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진12</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험- 춤(수남)</div> 
+    </a> <a href="https://youtube.com/shorts/W_ZgocLF5wY?si=xEZJqcfs3P2aywVn" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상13</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험-춤 대결(수남, 홍재)</div> 
+    </a> <a href="https://youtube.com/shorts/wJgwWWkSaUM?si=EaKDWmdPEq8b7CJl" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상14</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험-춤 대결(일행)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1556010439&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진15</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 대교를 배경으로-주름이 없네 (단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1617696933&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진16</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=793946523&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진17</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(홍숙, 인숙, 은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=857691706&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진18</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(명희, 인순, 희자, 동화)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=615025006&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진19</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(영형, 용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=177675824&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진20</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1387954631&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진21</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1143397659&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진22</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(홍철, 위웅, 영형 )</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1021113505&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진23</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(여자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1152625417&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진24</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.저녁식사(소문난북항횟집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=199081746&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진25</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.저녁식사(소문난북항횟집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=922680305&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진26</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.저녁식사(소문난북항횟집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1348824341&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진27</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.저녁식사(소문난북항횟집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=620460350&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진28</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">2026.5.23.저녁식사(소문난북항횟집)</div> 
+    </a> <a href="https://youtube.com/shorts/moWBSxBpSE0?si=Vv-Zn7DV-exuMVSr" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상29</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">숙소(오션호텔)가는 버스안</div> 
+    </a> <a href="https://youtube.com/shorts/zw3plpGrK74?si=d5CsIO3__atVzdbz" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상30</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">숙소(오션호텔)가는 버스안</div> 
+    </a> <a href="https://youtube.com/shorts/fp6w2nfrMG8?si=yBaelTqwoo7A9nqA" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상31</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">숙소(오션호텔)가는 버스안</div> 
+    </a> <a href="https://youtube.com/shorts/moWBSxBpSE0?si=Z4V8nbem8P79HNl1" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상32</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">숙소(오션호텔)가는 버스안</div> 
+    </a> <a href="https://youtube.com/shorts/id86gvvQleY?si=Sr9BZiFpFCXy617g" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상33</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험-춤(수남 홍재)</div> 
+    </a> <a href="https://youtube.com/shorts/5aFryGGO8mQ?si=hpGEdVaJO75Cx81i" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상34</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">숙소(오션호텔)가는 버스안</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1581494631&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진35</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(홍률, 위웅, 용주, 수남, 월수, 홍재)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1083895590&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진36</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(영형, 위철)</div> 
+    </a> <a href="https://youtube.com/shorts/atnsJsh_MPc?si=7-rpxd2oy_4rLlsf" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상37</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원-인생 그네(영형, 인숙, 용주)-와이리좋노^^</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=306219892&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진38</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(홍철, 위웅, 영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=1171980482&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진39</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 요트 체험(수상안전교욕)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=95242309&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진40</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(홍숙, 인숙, 은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=484120499&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진41</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(그네타는 영형, 용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=164703260&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진42</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사섬 분재 정원(홍숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKk_jgKV8C2abVgmrQZncXkLT9SRegraEOJJlbU75aDokN9n8ZzVWhxh6EBWlkz-auJzDnyNWJuEpd/pubhtml?gid=549202624&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진43</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">소문난 북항횟집</div> 
+    </a> <a href="https://m.blog.naver.com/rchristina/224294839713" target="_blank" class="card" data-type="blog"> 
+     <div class="card-header">
+      <span class="card-label blog">블로그44</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">인숙이의 전남 신안.목포 2박3일 여행기</div> 
+    </a> <a href="https://gahoe-account.vercel.app/2026/영형시.html" class="card" data-type="blog"> 
+     <div class="card-header">
+      <span class="card-label blog">시 45</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 여행(류영형)</div> 
+    </a>
+   </div>
+  </div>
+  <div class="section-box" data-section="1">
+   <div class="section-title">추억영상2 (2026. 5. 24.)</div>
+   <div class="card-list">
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=53945164&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진1</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">오션호텔 아침식사(은희, 홍숙, 현덕, 태연)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=906163420&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진2</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">오션호텔 아침식사(홍숙, 태연, 인숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1737868041&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진3</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">오션호텔 아침식사(월수, 용주, 영형, 수남, 동화, 위웅 )</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=930337333&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진4</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">오션호텔 아침식사</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1405423026&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진5</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">오션호텔 (아침식사 후 좌담)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1335604936&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진6</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">오션호텔 (아침식사 후 좌담)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1968065611&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진7</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">오션호텔 (아침식사 후 좌담)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1915601378&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진8</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 퍼플교(단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1508807839&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진9</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 퍼플교(단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=302305861&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진10</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(용주, 홍철, 위웅, 영형, 홍재, 월수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=2053181480&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진11</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(해수, 여자들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1132648127&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진12</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(여자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1473052392&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진13</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(홍철, 은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=761782795&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진14</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(위웅)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=922572073&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진15</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(월수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=945637245&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진16</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(홍철, 위웅, 월수, 영형, 용주, 홍재, 홍률)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1809115981&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진17</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(태연, 은희, 인숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1252976834&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진18</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(태연, 인숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1253459913&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진19</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(행자, 수남)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=463040027&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진20</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(여자친구들, 홍률, 월수, 해수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=125862539&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진21</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(은희)</div> 
+    </a> <a href="https://m.blog.naver.com/rchristina/224295571547?recommendTrackingCode=2" target="_blank" class="card" data-type="blog"> 
+     <div class="card-header">
+      <span class="card-label blog">블로그22</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">인숙이 블로그-퍼플섬 천사 뮤지엄 파크-꽃보다 친구-꽃보다 예쁜 62년생</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1536790325&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진23</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(홍률)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1446319707&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진24</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(은희, 행자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1006876550&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진25</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 보라꽃 향기정원(홍숙, 명희, 인숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=565819731&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진26</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 보라꽃 향기정원(해수, 홍재, 영형, 위웅, 홍철)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1174709457&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진27</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 보라꽃 향기정원(현덕, 인순)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=2083950158&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진28</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 보라꽃 향기정원(용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=714323480&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진29</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 보라꽃 향기정원(용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=476941306&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진30</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 보라꽃 향기정원(홍숙, 명희, 인숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=976991132&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진31</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(인순, 현덕, 명희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=671263846&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진32</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(행자, 은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=550992077&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진33</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(여자 친구들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=738177396&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진34</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(여자 친구들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=956215283&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진35</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(여자 친구들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=987935096&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진36</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(위웅, 은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=528904546&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진37</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">점심식사(섬마을 식당)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1736481014&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진38</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">점심식사(섬마을 식당)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=318814814&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진39</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">점심식사(섬마을 식당)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1543216297&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진40</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">꽃길카페(은희, 행자, 태연, 용주, 홍률, 위웅)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=207388243&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진41</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">꽃길카페(용주, 홍률, 위웅, 은희, 행자, 태연)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=133375464&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진42</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">꽃길카페(현덕, 명희, 인순, 희자, 인숙, 홍숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1469436035&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진43</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">꽃길카페(동화, 위철, 홍철, 위택)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=451520673&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진44</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">꽃길카페(월수, 영형, 수남, 홍재)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1561671545&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진45</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(단체사진)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=920310300&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진46</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(단체사진)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=841234461&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진47</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(단체사진)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=1388485726&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진48</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(여자 단체사진)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd8XOsvriwfiN2RV9sqFtKLcIom2CQfK5LlPA9HLtKIGJfk9mwQMyZDQgSn3BD69XgWRbYv6RF6j7s/pubhtml?gid=386550472&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진49</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(여자 단체사진)</div> 
+    </a>
+   </div>
+  </div>
+  <div class="section-box" data-section="2">
+   <div class="section-title">추억 영상3 (2026.5.24.)</div>
+   <div class="card-list">
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=234129915&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진1</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(희자, 월수, 위택, 인순, 현덕, 명희, 동화)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=981219669&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진2</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(위철, 영형, 수남, 행자, 홍재, 위웅)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1307463108&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진3</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(홍숙, 은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=2104300529&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진4</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1852502519&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진5</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(위택, 월수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1406613820&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진6</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(수남, 행자, 태연)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1087015576&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진7</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(인숙, 태연, 행자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=875714830&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진8</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(희자, 수남)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=215347240&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진9</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=415352391&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진10</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(인숙, 태연, 현덕, 희자, 홍숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1057414488&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진11</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(수남)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=876509614&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진12</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=2058073235&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진13</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=2104581695&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진14</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(위택, 월수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=639412309&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진15</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(인숙, 태연, 행자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1661323980&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진16</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(인숙, 태연, 행자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=638722582&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진17</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(수남, 희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=569655649&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진18</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(인숙, 현덕)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=2039404103&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진19</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(수남)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=502623620&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진20</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(셋터 친구들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=483815810&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진21</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(서지마 친구들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=399492355&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진22</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(중촌 친구들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1258538177&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진23</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(단체사진)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1261054148&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진24</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(은희, 용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1086018870&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진25</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(동화, 영형, 위웅, 월수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1856676921&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진26</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(영형, 해수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1226021335&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진27</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=696987728&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진28</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(홍숙, 영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1654137422&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진29</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">천사 뮤지엄 파크(용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1737501605&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진30</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">저녁식사(목포오봉집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1700748825&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진31</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">저녁식사(목포오봉집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1843696498&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진32</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">저녁식사(목포오봉집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1904945685&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진33</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">저녁식사(목포오봉집)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1786402263&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진34</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">저녁식사(목포오봉집)-버스 기사님</div> 
+    </a> <a href="https://youtube.com/shorts/3winRETGuI0?si=rKSJl3dUkE7LiXMg" target="_blank" class="card" data-type="video"> 
+     <div class="card-header">
+      <span class="card-label video">동영상35</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">동화 인생썰</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=1275469928&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진36</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 퍼플교(월수, 영형, 현덕, 인순, 홍숙, 홍재)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=279493724&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진37</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 퍼플교(단체사진)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=2085413499&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진38</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(용주, 홍재, 영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=53066180&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진39</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSYPpDpZtbCtaEy3TBDzbRirKWFGDQzoayEk07JpAr9thfshsIgdKpotw52Fr3aNojkZ95bADpaVufw/pubhtml?gid=237518336&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진40</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">퍼플섬 라벤더정원(용주)</div> 
+    </a>
+   </div>
+  </div>
+  <div class="section-box" data-section="3">
+   <div class="section-title">추억 영상4 (2026.5.25.)</div>
+   <div class="card-list">
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1810919711&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진1</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카(여자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1255453632&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진2</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카(단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1199353022&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진3</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (현덕, 명희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1647778624&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진4</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1928584807&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진5</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=35298642&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진6</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=512294572&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진7</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (위철)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=847424799&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진8</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (홍률)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=829289009&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진9</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (은희, 수남, 희자, 홍숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=147161935&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진10</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (은희, 수남, 희자, 홍숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1883564636&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진11</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (은희, 수남, 희자, 홍숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1907959163&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진12</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (수남)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1786798757&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진13</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1314325288&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진14</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=649304401&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진15</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카- 유달산(단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=706867353&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진16</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (동화, 희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=996930680&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진17</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=482022473&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진18</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1190567771&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진19</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (수남)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1146833218&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진20</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=2100307272&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진21</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (은희, 수남, 희자, 홍숙)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=614670796&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진22</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=441606386&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진23</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (여자단체)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=511278304&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진24</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (수남)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=130235224&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진25</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (영형, 월수, 홍철, 홍재, 위웅)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1887962025&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진26</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카(홍재, 홍률, 홍철, 위웅, 월수)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=484559046&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진27</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (행자, 태연, 은희)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=554914555&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진28</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (동화, 위택, 희자, 현덕)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1678743536&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진29</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (위택이와 여자들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1909165574&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진30</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (위택이와 여자들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=81618262&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진31</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (월수, 해수, 홍숙, 행자, 인숙, 홍률, 영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=214081466&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진32</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (현덕, 인순, 희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=47358437&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진33</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (인숙, 홍률, 영형)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=859672456&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진34</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (여자들)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=1884736174&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진35</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 (해수, 홍률)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=790841944&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진36</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">점심식사(서해 아구찜)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=270610236&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진37</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">점심식사(서해 아구찜)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=160803282&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진38</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">헤어지기 싫어(홍숙아 울지마)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=845774453&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진39</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">헤어지기 싫어(홍숙아 울지마)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSKVxfkzevr14HKVRDvmkzL5nDbKkpodLO83FSaSpxa-VFICNqvdst3pjxD_Apf6VXS9CoR45FhAdCz/pubhtml?gid=256603611&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진40</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">헤어지기 싫어(홍숙아 울지마)</div> 
+    </a>
+   </div>
+  </div>
+  <div class="section-box" data-section="4">
+   <div class="section-title">추억 영상5 (2026.5.25.)</div>
+   <div class="card-list">
+    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=941765221&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진1</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(은희, 용주, 위택, 위철)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=1518511767&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진2</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(은희, 위택)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=1540409887&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진3</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(인순, 현덕)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=1548848100&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진4</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(인순, 현덕)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=1692027477&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진5</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(행자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=1327183075&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진6</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(용주)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=1306048632&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진7</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(영형, 월수, 홍철, 홍률, 위웅)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=62913446&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진8</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(영형, 월수, 홍철, 홍재, 위웅)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=138423379&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진9</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 케이블카 데크(행자, 희자)</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/11CXksAQcGW5bV9y7v7NWFp5zU686Q0zzdVJNZnpQknE/edit" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진10</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 유달산(단체)</div> 
+    </a> <a href="https://bisque-helmet-phi.vercel.app/" target="_blank" class="card" data-type="blog"> 
+     <div class="card-header">
+      <span class="card-label blog">여행기11</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">홍철이의 신안 목포 여행기</div> 
+    </a> <a href="https://cyclamen-door-delta.vercel.app/" target="_blank" class="card" data-type="blog"> 
+     <div class="card-header">
+      <span class="card-label blog">수필12</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">데이트-인숙이의 수필</div> 
+    </a> <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRlMs0qOXF2E8b2hrmn2qFJq79zbMMPFf3ck8pOzuY7Ydh00VeMcaQhRGVwlAELcydNLcYl50OztrZ_/pubhtml?gid=311637317&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false" target="_blank" class="card" data-type="photo"> 
+     <div class="card-header">
+      <span class="card-label">사진13</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">여행 참가자 명단 (총 21명)</div> 
+    </a> <a href="https://m.blog.naver.com/rchristina/224302131163" target="_blank" class="card" data-type="blog"> 
+     <div class="card-header">
+      <span class="card-label blog">블로그14</span> <span class="link-badge">구글 보기 ↗</span>
+     </div> 
+     <div class="card-desc">목포 유달산 자락에 묻어둔 21인방의 ‘황금빛 추억'</div> 
+    </a>
+   </div>
+  </div>
+  <div class="footer">참여해주신 모든 분들께 감사드립니다. 늘 건강하고 행복하세요! ❤️</div>
+  <script>
+        function filterCards(type, btn) {
+            // 버튼 활성화 상태 변경
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // 카드 필터링
+            document.querySelectorAll('.card').forEach(card => {
+                if (type === 'all' || card.getAttribute('data-type') === type) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // 섹션별 카드 개수에 따라 빈 섹션 숨기기/보이기 처리
+            document.querySelectorAll('.section-box').forEach(section => {
+                const visibleCards = section.querySelectorAll('.card[style*="block"], .card:not([style*="display: none"])');
+                if (type === 'all') {
+                    section.style.display = 'block';
+                } else {
+                    const hasMatch = Array.from(section.querySelectorAll('.card')).some(c => c.getAttribute('data-type') === type);
+                    section.style.display = hasMatch ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+ </body>
+</html>
