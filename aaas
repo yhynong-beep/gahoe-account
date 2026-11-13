@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>가호회 장부</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --soft: #f5f6f8;
+    --line: #e5e7eb;
+    --text: #111827;
+    --sub: #6b7280;
+    --accent: #2563eb;
+    --in: #15803d;
+    --out: #b91c1c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+    background: var(--bg); color: var(--text);
+    max-width: 520px; margin: 0 auto; min-height: 100vh;
+    font-size: 16px; line-height: 1.4;
+  }
+
+  /* 상단 고정 영역 */
+  .top { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); padding: 14px 16px 10px; }
+  .title-row { display: flex; justify-content: space-between; align-items: baseline; }
+  h1 { font-size: 20px; font-weight: 700; }
+  .balance { font-size: 15px; color: var(--sub); }
+  .balance b { color: var(--text); font-size: 18px; }
+  .totals { display: flex; gap: 16px; margin-top: 4px; font-size: 14px; color: var(--sub); }
+  .totals .in { color: var(--in); font-weight: 600; }
+  .totals .out { color: var(--out); font-weight: 600; }
+
+  .search { position: relative; margin-top: 12px; }
+  .search input {
+    width: 100%; height: 44px; border: 1px solid var(--line); border-radius: 10px;
+    background: var(--soft); padding: 0 40px 0 14px; font-size: 16px; color: var(--text);
+  }
+  .search input:focus { outline: 2px solid var(--accent); background: #fff; }
+  .clear {
+    position: absolute; right: 4px; top: 4px; width: 36px; height: 36px; border: 0; background: none;
+    font-size: 20px; color: var(--sub); display: none; cursor: pointer;
+  }
+  .search.has-text .clear { display: block; }
+
+  .tabs { display: flex; gap: 6px; margin-top: 10px; }
+  .tab {
+    flex: 1; height: 38px; border: 1px solid var(--line); background: #fff; border-radius: 10px;
+    font-size: 15px; color: var(--sub); cursor: pointer;
+  }
+  .tab.active { background: var(--text); border-color: var(--text); color: #fff; font-weight: 600; }
+
+  .count { padding: 10px 16px 0; font-size: 13px; color: var(--sub); }
+
+  /* 목록 */
+  .list { padding: 4px 16px 120px; }
+  .row {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+    color: inherit; text-decoration: none;
+  }
+  .row .left { min-width: 0; }
+  .row .content { font-size: 16px; font-weight: 500; word-break: keep-all; }
+  .row .date { font-size: 13px; color: var(--sub); margin-top: 2px; }
+  .row .right { text-align: right; flex-shrink: 0; }
+  .row .amt { font-size: 16px; font-weight: 700; }
+  .row .amt.in { color: var(--in); }
+  .row .amt.out { color: var(--out); }
+  .row .bal { font-size: 12px; color: var(--sub); margin-top: 2px; }
+  .row .view { font-size: 14px; color: var(--accent); font-weight: 600; }
+  mark { background: #fef08a; color: inherit; border-radius: 2px; }
+  .row.flash { animation: flash 1.6s ease-out; }
+  @keyframes flash { from { background: #fef9c3; } to { background: transparent; } }
+  .empty { padding: 60px 0; text-align: center; color: var(--sub); }
+
+  /* 위/아래 이동 버튼 */
+  .jump { position: fixed; right: max(14px, calc((100vw - 520px) / 2 + 14px)); bottom: 20px; display: flex; flex-direction: column; gap: 8px; z-index: 20; }
+  .jump button {
+    height: 46px; padding: 0 16px; border: 0; border-radius: 23px; font-size: 15px; font-weight: 600;
+    background: var(--text); color: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.2); cursor: pointer;
+  }
+  .jump button.light { background: #fff; color: var(--text); border: 1px solid var(--line); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .row.flash { animation: none; } }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="title-row">
+    <h1>가호회 장부</h1>
+    <div class="balance">잔액 <b id="balance">-</b></div>
+  </div>
+  <div class="totals">
+    <span>입금 <span class="in" id="totalIn">-</span></span>
+    <span>출금 <span class="out" id="totalOut">-</span></span>
+  </div>
+
+  <div class="search" id="searchBox">
+    <input id="q" type="search" placeholder="내용·날짜 검색" autocomplete="off" enterkeyhint="search">
+    <button class="clear" id="clear" aria-label="검색어 지우기">×</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" data-f="all">전체</button>
+    <button class="tab" data-f="입금">입금</button>
+    <button class="tab" data-f="출금">출금</button>
+  </div>
+</div>
+
+<div class="count" id="count"></div>
+<div class="list" id="list"></div>
+
+<div class="jump">
+  <button class="light" id="toTop">↑ 처음</button>
+  <button id="toEnd">↓ 마지막</button>
+</div>
+
+<script>
+  var data = [];
+  var filter = 'all';
+  var query = '';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var won = function (n) { return n.toLocaleString('ko-KR') + '원'; };
+  var esc = function (s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  };
+  function mark(text) {
+    var safe = esc(text);
+    if (!query) return safe;
+    var q = esc(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return safe.replace(new RegExp('(' + q + ')', 'gi'), '<mark>$1</mark>');
+  }
+
+  fetch('data.json')
+    .then(function (r) { return r.json(); })
+    .then(function (raw) {
+      var bal = 0, tin = 0, tout = 0;
+      data = raw.map(function (it) {
+        var a = it.amount || 0;
+        if (it.type === '입금') { bal += a; tin += a; }
+        else if (it.type === '출금') { bal -= a; tout += a; }
+        return Object.assign({}, it, { bal: bal });
+      });
+      $('balance').textContent = won(bal);
+      $('totalIn').textContent = won(tin);
+      $('totalOut').textContent = won(tout);
+      render();
+    })
+    .catch(function () {
+      $('list').innerHTML = '<div class="empty">내역을 불러오지 못했습니다.<br>잠시 후 다시 열어 주세요.</div>';
+    });
+
+  function render() {
+    var q = query.trim().toLowerCase();
+    var items = data.filter(function (it) {
+      if (filter !== 'all' && it.type !== filter) return false;
+      if (!q) return true;
+      return ((it.content || '') + ' ' + (it.date || '')).toLowerCase().indexOf(q) !== -1;
+    });
+
+    $('count').textContent = (q || filter !== 'all') ? '검색 결과 ' + items.length + '건' : '전체 ' + items.length + '건';
+
+    if (!items.length) {
+      $('list').innerHTML = '<div class="empty">검색 결과가 없습니다.</div>';
+      return;
+    }
+
+    $('list').innerHTML = items.map(function (it) {
+      var isLink = !!it.link;
+      var pureLink = it.type === '링크' || (isLink && !it.amount);
+      var tag = isLink ? 'a' : 'div';
+      var attrs = isLink ? ' href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer"' : '';
+      var right = '';
+      if (pureLink) {
+        right = '<div class="view">보기</div>';
+      } else {
+        var inc = it.type === '입금';
+        right = '<div class="amt ' + (inc ? 'in' : 'out') + '">' + (inc ? '+' : '-') + won(it.amount || 0) + '</div>' +
+                '<div class="bal">잔액 ' + won(it.bal) + '</div>';
+      }
+      return '<' + tag + ' class="row"' + attrs + '>' +
+               '<div class="left"><div class="content">' + mark(it.content) + '</div>' +
+               '<div class="date">' + mark(it.date || '') + '</div></div>' +
+               '<div class="right">' + right + '</div>' +
+             '</' + tag + '>';
+    }).join('');
+  }
+
+  // 검색
+  $('q').addEventListener('input', function (e) {
+    query = e.target.value;
+    $('searchBox').classList.toggle('has-text', !!query);
+    render();
+  });
+  $('clear').addEventListener('click', function () {
+    $('q').value = ''; query = '';
+    $('searchBox').classList.remove('has-text');
+    render(); $('q').focus();
+  });
+
+  // 입금/출금 탭
+  document.querySelectorAll('.tab').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      filter = b.dataset.f;
+      render();
+      window.scrollTo(0, 0);
+    });
+  });
+
+  // 처음 / 마지막으로 이동
+  $('toTop').addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  $('toEnd').addEventListener('click', function () {
+    var rows = document.querySelectorAll('.row');
+    if (!rows.length) return;
+    var last = rows[rows.length - 1];
+    last.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    last.classList.remove('flash'); void last.offsetWidth; last.classList.add('flash');
+  });
+</script>
+</body>
+</html>
