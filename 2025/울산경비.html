@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>울산 여행 경비 내역</title>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #cbd5e1;
+            --badge-bg: #fef3c7;
+            --badge-text: #92400e;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Pretendard', 'Malgun Gothic', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0 15px 30px 15px;
+            line-height: 1.35;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* 상단 고정 헤더 */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            padding: 14px 15px;
+            margin-bottom: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            border-bottom: 2px solid #1e40af;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            margin: 3px 0 0 0;
+            font-size: 13px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* 요약 카드 */
+        .summary-card {
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .summary-info .sub-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .summary-info .total-amount {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-top: 2px;
+        }
+
+        /* 테이블 스타일 */
+        .table-container {
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 10px;
+            overflow-x: auto;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 800;
+            padding: 11px 14px;
+            border-bottom: 1.5px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .photo-col {
+            text-align: center;
+            width: 80px;
+        }
+
+        .photo-link {
+            color: var(--accent-color);
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .photo-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .desc-col {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .amount-col {
+            text-align: right;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .sponsor-row {
+            background-color: #fffbeb !important;
+        }
+
+        .badge-sponsor {
+            display: inline-block;
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 30px;
+            padding: 10px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 8px 20px 8px;
+            }
+            header {
+                padding: 12px 10px;
+            }
+            th, td {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>울산 여행 경비 내역</h1>
+        <p>울산 여행 지출 항목 및 별도 찬조 내역</p>
+    </header>
+
+    <div class="summary-card">
+        <div class="summary-info">
+            <div class="sub-title">지출 항목 (총 7건)</div>
+            <div class="total-amount">총 지출 금액: 1,432,090원</div>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="photo-col">자료</th>
+                    <th class="desc-col">내용</th>
+                    <th style="text-align: right;">금액 / 비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=1568709092&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진1 🔗</a></td>
+                    <td class="desc-col">술, 과일, 다과</td>
+                    <td class="amount-col">228,090원</td>
+                </tr>
+                <tr>
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=1084410931&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진2 🔗</a></td>
+                    <td class="desc-col">저녁 식사 (5/24)</td>
+                    <td class="amount-col">510,000원</td>
+                </tr>
+                <tr>
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=1675556738&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진3 🔗</a></td>
+                    <td class="desc-col">노래방 (5/24)</td>
+                    <td class="amount-col">220,000원</td>
+                </tr>
+                <tr>
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=1405334002&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진4 🔗</a></td>
+                    <td class="desc-col">봉고대여 (영수증 없음)</td>
+                    <td class="amount-col">70,000원</td>
+                </tr>
+                <tr>
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=193516075&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진5 🔗</a></td>
+                    <td class="desc-col">아침 식사 (5/25)</td>
+                    <td class="amount-col">213,000원</td>
+                </tr>
+                <tr>
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=915476742&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진6 🔗</a></td>
+                    <td class="desc-col">관람차 (태화강)</td>
+                    <td class="amount-col">18,000원</td>
+                </tr>
+                <tr>
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=731775788&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진7 🔗</a></td>
+                    <td class="desc-col">점심 식사 (5/25)</td>
+                    <td class="amount-col">173,000원</td>
+                </tr>
+                <tr class="sponsor-row">
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=2059849406&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진8 🔗</a></td>
+                    <td class="desc-col"><span class="badge-sponsor">별도 찬조</span>숙박장소-펜션 (해수)</td>
+                    <td class="amount-col" style="text-align: right; color: #92400e;">방 4개 (79만원)</td>
+                </tr>
+                <tr class="sponsor-row">
+                    <td class="photo-col"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLzDqrjDlVkqtRcmgPVK7zmSIoxvYnY53yK2_-Ycf-2_bbwreFxM2Tjs-ws01IHlYGSgca8Vmd39lW/pubhtml?gid=1754154621&single=true&widget=false&headers=false&chrome=false" target="_blank" class="photo-link">사진9 🔗</a></td>
+                    <td class="desc-col"><span class="badge-sponsor">별도 찬조</span>음식-쑥떡 (인순)</td>
+                    <td class="amount-col" style="text-align: right; color: #92400e;">쑥떡 찬조</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>울산 여행 경비 관리</p>
+    </footer>
+</div>
+
+</body>
+</html>
