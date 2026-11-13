@@ -290,25 +290,16 @@
             margin-top: auto;
         }
 
-        /* 위/아래 이동 버튼 */
-        .jump-btns {
-            position: fixed;
-            bottom: 24px;
-            right: max(16px, calc((100vw - 480px) / 2 + 16px));
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 200;
-        }
-        .jump-btns button {
-            width: 48px;
-            height: 48px;
-            border: none;
+        /* 위/아래 이동 버튼 (탭 줄) */
+        .jump-btn {
+            flex: 0 0 38px;
+            width: 38px;
+            padding: 0;
+            border: 1px solid var(--border-color);
+            background: #f8fafc;
+            color: var(--primary);
             border-radius: 50%;
-            background: var(--primary);
-            color: #fff;
-            font-size: 20px;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+            font-size: 14px;
             cursor: pointer;
         }
     </style>
@@ -337,6 +328,8 @@
     <button class="tab-btn active" onclick="setTab('all', this)">전체 내역</button>
     <button class="tab-btn" onclick="setTab('입금', this)">입금만</button>
     <button class="tab-btn" onclick="setTab('출금', this)">출금만</button>
+    <button class="jump-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="맨 위로"><i class="fa-solid fa-arrow-up"></i></button>
+    <button class="jump-btn" onclick="window.scrollTo({top: document.documentElement.scrollHeight, behavior: 'smooth'})" aria-label="맨 아래로"><i class="fa-solid fa-arrow-down"></i></button>
    </div>
    <main>
     <div class="list-container" id="historyList"></div>
@@ -448,9 +441,5 @@
 
     document.addEventListener('DOMContentLoaded', loadData);
 </script>
-  <div class="jump-btns">
-   <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="맨 위로"><i class="fa-solid fa-arrow-up"></i></button>
-   <button type="button" onclick="window.scrollTo({top: document.documentElement.scrollHeight, behavior: 'smooth'})" aria-label="맨 아래로"><i class="fa-solid fa-arrow-down"></i></button>
-  </div>
  </body>
 </html>
